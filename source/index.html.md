@@ -10,6 +10,7 @@ toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation by <br/>CRM Platform Developers</a>
 
 includes:
+  - countries
   - states
   - errors
 
