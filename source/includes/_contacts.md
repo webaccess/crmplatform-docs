@@ -278,13 +278,13 @@ This method creates a contact with the attribute parameters passed to this metho
 | Content-Type  | application/json |
 | Authorization | Bearer API_TOKEN |
 
-### URL Parameters
+### Request Parameters
 
 | Parameters        | Description                                                      |
 | ----------------- | ---------------------------------------------------------------- |
 | name              | The name of the individual or organization or user in the system |
 | contact_type      | Type of contact (values : organization/individual)               |
-| Column attributes | Optional                                                         |
+| Column attributes | Column attributes in the table (Optional)                        |
 
 ## Update a Specific Contact
 
@@ -385,6 +385,12 @@ This method updates the specific contact by id with attribute parameters passed 
 | Parameter | Description                     |
 | --------- | ------------------------------- |
 | ID        | The ID of the contact to update |
+
+### Request Parameters
+
+| Parameter         | Description                    |
+| ----------------- | ------------------------------ |
+| Column attributes | Column attributes in the table |
 
 ## Delete a Specific Contact
 

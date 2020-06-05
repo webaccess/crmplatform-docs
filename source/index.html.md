@@ -10,6 +10,8 @@ toc_footers:
   - <a href='https://github.com/webaccess/crmplatform' target='_blank'>Documentation by <br/>CRM Platform Developers</a>
 
 includes:
+  - users
+  - password
   - activitytypes
   - activities
   - contacts

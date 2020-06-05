@@ -218,11 +218,12 @@ This method creates a tag with the attribute parameters passed to this method by
 
 ### Request Parameters
 
-| Parameter         | Description                                          |
-| ----------------- | ---------------------------------------------------- |
-| name              | The name of the tag                                  |
-| is_active         | Active status of tag (Boolean value : true or false) |
-| Column attributes | Column attributes in the table (Optional)            |
+| Parameter         | Description                                                                   |
+| ----------------- | ----------------------------------------------------------------------------- |
+| name              | The name of the tag                                                           |
+| is_active         | Active status of tag (Boolean value : true or false)                          |
+| contact           | Specifies contact tag which could be an organization or individual (Optional) |
+| Column attributes | Column attributes in the table (Optional)                                     |
 
 ## Update a Specific Tag
 
@@ -349,6 +350,12 @@ This method updates the specific tag by id with attribute parameters passed to i
 | Parameter | Description                 |
 | --------- | --------------------------- |
 | ID        | The ID of the tag to update |
+
+### Request Parameters
+
+| Parameter         | Description                    |
+| ----------------- | ------------------------------ |
+| Column attributes | Column attributes in the table |
 
 ## Delete a Specific Tag
 

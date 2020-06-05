@@ -1,8 +1,8 @@
-# Activitytypes
+# Activity types
 
 Activitytype stores details about basic types of activities that are stored in activity content type
 
-## Get All Activitytypes
+## Get All Activity types
 
 ```python
 import http.client
@@ -72,7 +72,7 @@ This method returns all the activitytype details by default or specific activity
 | --------- | ----------------------------------------- |
 | Filters   | Column attributes in the table (Optional) |
 
-## Get a Specific Activitytype
+## Get a Specific Activity type
 
 ```python
 import http.client
@@ -140,7 +140,7 @@ This method returns specific activitytype details by id.
 | --------- | -------------------------------------- |
 | ID        | The ID of the activitytype to retrieve |
 
-## Save a Specific Activitytype
+## Save a Specific Activity type
 
 ```python
 import http.client
@@ -209,15 +209,15 @@ This method creates an activitytype with the attribute parameters passed to this
 | Content-Type  | application/json |
 | Authorization | Bearer API_TOKEN |
 
-### URL Parameters
+### Request Parameters
 
 | Parameter         | Description                                                   |
 | ----------------- | ------------------------------------------------------------- |
 | title             | The name of the activity                                      |
 | is_active         | Active status of activitytype (Boolean value : true or false) |
-| Column attributes | Optional                                                      |
+| Column attributes | Column attributes in the table (Optional)                     |
 
-## Update a Specific Activitytype
+## Update a Specific Activity type
 
 ```python
 import http.client
@@ -292,7 +292,13 @@ This method updates the specific activitytype by id with attribute parameters pa
 | --------- | ------------------------------------ |
 | ID        | The ID of the activitytype to update |
 
-## Delete a Specific Activitytype
+### Request Parameters
+
+| Parameter         | Description                    |
+| ----------------- | ------------------------------ |
+| Column attributes | Column attributes in the table |
+
+## Delete a Specific Activity type
 
 ```python
 import http.client

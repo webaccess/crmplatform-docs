@@ -277,15 +277,14 @@ This method creates a country with the attribute parameters passed to this metho
 | Content-Type  | application/json |
 | Authorization | Bearer API_TOKEN |
 
-### URL Parameters
+### Request Parameters
 
 | Parameters        | Description                                              |
 | ----------------- | -------------------------------------------------------- |
 | name              | The name of the country to create                        |
 | is_active         | Active status of country (Boolean value : true or false) |
 | abbreviation      | Abbreviation for the country (Unique value)              |
-| id                | Identifier of country table (Optional)                   |
-| Column attributes | Optional                                                 |
+| Column attributes | Column attributes in the table (Optional)                |
 
 ## Update a Specific Country
 
@@ -365,6 +364,12 @@ This method updates the specific country by id with attribute parameters passed 
 | Parameter | Description                     |
 | --------- | ------------------------------- |
 | ID        | The ID of the country to update |
+
+### Request Parameters
+
+| Parameter         | Description                    |
+| ----------------- | ------------------------------ |
+| Column attributes | Column attributes in the table |
 
 ## Delete a Specific Country
 

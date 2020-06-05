@@ -363,6 +363,12 @@ This method updates the specific district by id with attribute parameters passed
 | --------- | -------------------------------- |
 | ID        | The ID of the district to update |
 
+### Request Parameters
+
+| Parameter         | Description                    |
+| ----------------- | ------------------------------ |
+| Column attributes | Column attributes in the table |
+
 ## Delete a Specific District
 
 ```python

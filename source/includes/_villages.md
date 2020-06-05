@@ -367,6 +367,12 @@ This method updates the specific village by id with attribute parameters passed 
 | --------- | ------------------------------- |
 | ID        | The ID of the village to update |
 
+### Request Parameters
+
+| Parameter         | Description                    |
+| ----------------- | ------------------------------ |
+| Column attributes | Column attributes in the table |
+
 ## Delete a Specific Village
 
 ```python
