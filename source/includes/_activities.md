@@ -219,11 +219,11 @@ This method creates an activity with the attribute parameters passed to this met
 
 ### Request Parameters
 
-| Parameter         | Description                                                                         |
-| ----------------- | ----------------------------------------------------------------------------------- |
-| title             | The name of the activity                                                            |
-| contact           | Specifies activity assignee which could be an organization or individual (Optional) |
-| Column attributes | Column attributes in the table (Optional)                                           |
+| Parameter         | Description                                                               |
+| ----------------- | ------------------------------------------------------------------------- |
+| title             | The name of the activity                                                  |
+| contact           | Array of activity assignee (an organization or individual) ids (Optional) |
+| Column attributes | Column attributes in the table (Optional)                                 |
 
 ## Update a Specific Activity
 
