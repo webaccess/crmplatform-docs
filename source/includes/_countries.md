@@ -70,7 +70,9 @@ This method returns all the country details by default or specific country detai
 
 ### URL Parameters
 
-Optional
+| Parameter | Description                               |
+| --------- | ----------------------------------------- |
+| Filters   | Column attributes in the table (Optional) |
 
 ## Get a Specific Country
 
@@ -277,14 +279,15 @@ This method creates a country with the attribute parameters passed to this metho
 
 ### URL Parameters
 
-| Parameters   | Description                                              |
-| ------------ | -------------------------------------------------------- |
-| name         | The name of the country to create                        |
-| is_active    | Active status of country (Boolean value : true or false) |
-| abbreviation | Abbreviation for the country (Unique value)              |
-| id           | Identifier of country table (Optional)                   |
+| Parameters        | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| name              | The name of the country to create                        |
+| is_active         | Active status of country (Boolean value : true or false) |
+| abbreviation      | Abbreviation for the country (Unique value)              |
+| id                | Identifier of country table (Optional)                   |
+| Column attributes | Optional                                                 |
 
-## Update a Country
+## Update a Specific Country
 
 ```python
 import http.client
@@ -292,7 +295,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = "{\n\t \"name\": \"United States --test\",\n     \"is_active\": true,\n     \"abbreviation\": \"US\"\n}"
 headers = {}
-conn.request("PUT", "/countries/3", payload, headers)
+conn.request("PUT", "/countries/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -308,7 +311,7 @@ wget --no-check-certificate --quiet \
      "is_active": true,
      "abbreviation": "US"
 }' \
-   'http://localhost:1337/crm-plugin/countries/3'
+   'http://localhost:1337/crm-plugin/countries/1'
 ```
 
 ```javascript
@@ -321,10 +324,25 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/countries/3", requestOptions)
+fetch("http://localhost:1337/crm-plugin/countries/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
+```
+
+The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "name": "United States --test",
+  "is_active": true,
+  "abbreviation": "US",
+  "identifier": null,
+  "created_at": "2020-05-29T06:32:34.951Z",
+  "updated_at": "2020-05-29T06:33:15.461Z",
+  "states": []
+}
 ```
 
 ### Description
@@ -390,7 +408,7 @@ fetch("http://localhost:1337/crm-plugin/countries/1", requestOptions)
 ```json
 {
   "id": 1,
-  "name": "United States",
+  "name": "United States --test",
   "is_active": true,
   "abbreviation": "US",
   "identifier": null,

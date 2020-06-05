@@ -44,16 +44,13 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
 ```json
 [
   {
-    "id": 2,
-    "name": "Gujarat",
+    "id": 1,
+    "name": "tag1",
+    "description": null,
     "is_active": true,
-    "abbreviation": null,
-    "identifier": null,
-    "country": null,
-    "created_at": "2020-05-13T14:36:12.354Z",
-    "updated_at": "2020-05-13T14:36:12.354Z",
-    "districts": [],
-    "villages": []
+    "created_at": "2020-06-04T13:19:23.880Z",
+    "updated_at": "2020-06-04T13:19:23.880Z",
+    "contacttags": []
   }
 ]
 ```
@@ -64,7 +61,7 @@ This method returns all the tag details by default or specific tag details with 
 
 ### HTTP Request
 
-`GET http://localhost:1337/crm-plugin/villages`
+`GET http://localhost:1337/crm-plugin/tags`
 
 ### Headers
 
@@ -75,7 +72,9 @@ This method returns all the tag details by default or specific tag details with 
 
 ### URL Parameters
 
-Optional
+| Parameter | Description                               |
+| --------- | ----------------------------------------- |
+| Filters   | Column attributes in the table (Optional) |
 
 ## Get a Specific Tag
 
@@ -115,16 +114,13 @@ fetch("http://localhost:1337/crm-plugin/tags/1", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
+  "id": 1,
+  "name": "tag1",
+  "description": null,
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
+  "created_at": "2020-06-04T13:19:23.880Z",
+  "updated_at": "2020-06-04T13:19:23.880Z",
+  "contacttags": []
 }
 ```
 
@@ -134,7 +130,7 @@ This method returns specific tag details by id
 
 ### HTTP Request
 
-`GET http://localhost:1337/crm-plugin/villages/<ID>`
+`GET http://localhost:1337/crm-plugin/tags/<ID>`
 
 ### Headers
 
@@ -145,9 +141,9 @@ This method returns specific tag details by id
 
 ### URL Parameters
 
-| Parameter | Description                       |
-| --------- | --------------------------------- |
-| ID        | The ID of the country to retrieve |
+| Parameter | Description                   |
+| --------- | ----------------------------- |
+| ID        | The ID of the tag to retrieve |
 
 ## Save a Specific Tag
 
@@ -195,16 +191,13 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
 
 ```json
 {
-  "id": 4,
-  "name": "maharashtra",
+  "id": 2,
+  "name": "tag7",
+  "description": null,
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-22T15:16:49.908Z",
-  "updated_at": "2020-05-22T15:16:49.908Z",
-  "districts": [],
-  "villages": []
+  "created_at": "2020-06-04T13:19:23.880Z",
+  "updated_at": "2020-06-04T13:19:23.880Z",
+  "contacttags": []
 }
 ```
 
@@ -214,7 +207,135 @@ This method creates a tag with the attribute parameters passed to this method by
 
 ### HTTP Request
 
-`POST http://localhost:1337/crm-plugin/villages/<ID>`
+`POST http://localhost:1337/crm-plugin/tags`
+
+### Headers
+
+| Key           | Value            |
+| ------------- | ---------------- |
+| Content-Type  | application/json |
+| Authorization | Bearer API_TOKEN |
+
+### Request Parameters
+
+| Parameter         | Description                                          |
+| ----------------- | ---------------------------------------------------- |
+| name              | The name of the tag                                  |
+| is_active         | Active status of tag (Boolean value : true or false) |
+| Column attributes | Column attributes in the table (Optional)            |
+
+## Update a Specific Tag
+
+```python
+import http.client
+import mimetypes
+conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
+payload = "{\n    \"is_active\": false,\n    \"contacts\": [\n        1\n    ]\n}"
+headers = {}
+conn.request("PUT", "/tags/2", payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(data.decode("utf-8"))
+```
+
+```shell
+wget --no-check-certificate --quiet \
+  --method PUT \
+  --timeout=0 \
+  --header '' \
+  --body-data '{
+    "is_active": false,
+    "contacts": [
+        1
+    ]
+}' \
+   'http://localhost:1337/crm-plugin/tags/2'
+```
+
+```javascript
+var raw = '{\n	"name": "andheri --test"\n}';
+
+var requestOptions = {
+  method: "PUT",
+  body: raw,
+  redirect: "follow",
+};
+
+fetch("http://localhost:1337/crm-plugin/tags/2", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "tag7",
+  "description": null,
+  "is_active": false,
+  "created_at": "2020-06-04T13:19:23.880Z",
+  "updated_at": "2020-06-04T13:26:17.629Z",
+  "contacttags": [
+    {
+      "id": 1,
+      "contact": 1,
+      "tag": 2,
+      "created_at": "2020-06-04T13:26:17.453Z",
+      "updated_at": "2020-06-04T13:26:17.477Z"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "NewTech",
+      "phone": null,
+      "phone_other": null,
+      "email": null,
+      "email_other": null,
+      "address_1": null,
+      "address_2": null,
+      "city": null,
+      "pincode": null,
+      "contact_type": "organization",
+      "organization": {
+        "id": 155,
+        "name": "NewTech",
+        "contact": 158,
+        "created_at": "2020-06-04T13:25:03.188Z",
+        "updated_at": "2020-06-04T13:25:03.354Z"
+      },
+      "country": null,
+      "state": null,
+      "district": null,
+      "individual": null,
+      "user": null,
+      "created_at": "2020-06-04T13:25:03.298Z",
+      "updated_at": "2020-06-04T13:25:03.375Z",
+      "villages": [],
+      "activityassignees": [],
+      "contacttags": [
+        {
+          "id": 1,
+          "contact": 1,
+          "tag": 2,
+          "created_at": "2020-06-04T13:26:17.453Z",
+          "updated_at": "2020-06-04T13:26:17.477Z"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Description
+
+This method updates the specific tag by id with attribute parameters passed to it.It returns details of updated tag
+
+### HTTP Request
+
+`UPDATE http://localhost:1337/crm-plugin/tags/<ID>`
 
 ### Headers
 
@@ -225,9 +346,9 @@ This method creates a tag with the attribute parameters passed to this method by
 
 ### URL Parameters
 
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| Parameter | Description                 |
+| --------- | --------------------------- |
+| ID        | The ID of the tag to update |
 
 ## Delete a Specific Tag
 
@@ -237,7 +358,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/tags/2", payload, headers)
+conn.request("DELETE", "/tags/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -248,7 +369,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/tags/2'
+   'http://localhost:1337/crm-plugin/tags/1'
 ```
 
 ```javascript
@@ -260,7 +381,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activities/4", requestOptions)
+fetch("http://localhost:1337/crm-plugin/tags/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -270,16 +391,13 @@ fetch("http://localhost:1337/crm-plugin/activities/4", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
+  "id": 1,
+  "name": "tag1",
+  "description": null,
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
+  "created_at": "2020-06-04T13:19:23.880Z",
+  "updated_at": "2020-06-04T13:19:23.880Z",
+  "contacttags": []
 }
 ```
 
@@ -289,7 +407,7 @@ This method deletes specific tag by id and returns details of deleted tag
 
 ### HTTP Request
 
-`DELETE http://localhost:1337/crm-plugin/villages/<ID>`
+`DELETE http://localhost:1337/crm-plugin/tags/<ID>`
 
 ### Headers
 
@@ -300,6 +418,6 @@ This method deletes specific tag by id and returns details of deleted tag
 
 ### URL Parameters
 
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| Parameter | Description                 |
+| --------- | --------------------------- |
+| ID        | The ID of the tag to delete |

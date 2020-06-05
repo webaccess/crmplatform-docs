@@ -44,7 +44,7 @@ fetch("http://localhost:1337/crm-plugin/villages", requestOptions)
 ```json
 [
   {
-    "id": 2,
+    "id": 1,
     "name": "Hivre",
     "abbreviation": null,
     "identifier": null,
@@ -75,7 +75,9 @@ This method returns all the village details by default or specific village detai
 
 ### URL Parameters
 
-Optional
+| Parameter | Description                               |
+| --------- | ----------------------------------------- |
+| Filters   | Column attributes in the table (Optional) |
 
 ## Get a Specific Village
 
@@ -85,7 +87,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("GET", "/villages/2", payload, headers)
+conn.request("GET", "/villages/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -96,7 +98,7 @@ wget --no-check-certificate --quiet \
   --method GET \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/villages/2'
+   'http://localhost:1337/crm-plugin/villages/1'
 ```
 
 ```javascript
@@ -105,7 +107,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/villages/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/villages/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -115,16 +117,16 @@ fetch("http://localhost:1337/crm-plugin/villages/2", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
-  "is_active": true,
+  "id": 1,
+  "name": "Hivre",
   "abbreviation": null,
   "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
+  "is_active": true,
+  "state": null,
+  "district": null,
+  "created_at": "2020-05-22T06:25:50.650Z",
+  "updated_at": "2020-05-22T06:25:50.650Z",
+  "contacts": []
 }
 ```
 
@@ -147,7 +149,7 @@ This method returns specific village details by id.
 
 | Parameter | Description                       |
 | --------- | --------------------------------- |
-| ID        | The ID of the country to retrieve |
+| ID        | The ID of the village to retrieve |
 
 ## Count All/Specific Villages
 
@@ -186,7 +188,7 @@ fetch("http://localhost:1337/crm-plugin/villages/count", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-2
+1
 ```
 
 ### Description
@@ -252,16 +254,16 @@ fetch("http://localhost:1337/crm-plugin/villages", requestOptions)
 
 ```json
 {
-  "id": 4,
-  "name": "maharashtra",
-  "is_active": true,
+  "id": 2,
+  "name": "thane",
   "abbreviation": null,
   "identifier": null,
-  "country": null,
-  "created_at": "2020-05-22T15:16:49.908Z",
-  "updated_at": "2020-05-22T15:16:49.908Z",
-  "districts": [],
-  "villages": []
+  "is_active": true,
+  "state": null,
+  "district": null,
+  "created_at": "2020-06-04T12:56:38.181Z",
+  "updated_at": "2020-06-04T12:56:38.181Z",
+  "contacts": []
 }
 ```
 
@@ -271,7 +273,7 @@ This method creates a village with the attribute parameters passed to this metho
 
 ### HTTP Request
 
-`POST http://localhost:1337/crm-plugin/villages/<ID>`
+`POST http://localhost:1337/crm-plugin/villages`
 
 ### Headers
 
@@ -280,13 +282,14 @@ This method creates a village with the attribute parameters passed to this metho
 | Content-Type  | application/json |
 | Authorization | Bearer API_TOKEN |
 
-### URL Parameters
+### Request Parameters
 
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| Parameter         | Description                               |
+| ----------------- | ----------------------------------------- |
+| name              | The name of the village                   |
+| Column attributes | Column attributes in the table (Optional) |
 
-## Update a Village
+## Update a Specific Village
 
 ```python
 import http.client
@@ -326,6 +329,23 @@ fetch("http://localhost:1337/crm-plugin/villages/2", requestOptions)
   .catch((error) => console.log("error", error));
 ```
 
+The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "thane --test",
+  "abbreviation": null,
+  "identifier": null,
+  "is_active": true,
+  "state": null,
+  "district": null,
+  "created_at": "2020-06-04T12:56:38.181Z",
+  "updated_at": "2020-06-04T12:56:38.181Z",
+  "contacts": []
+}
+```
+
 ### Description
 
 This method updates the specific village by id with attribute parameters passed to it.It returns details of updated village
@@ -355,7 +375,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/villages/3", payload, headers)
+conn.request("DELETE", "/villages/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -366,7 +386,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/villages/3'
+   'http://localhost:1337/crm-plugin/villages/1'
 ```
 
 ```javascript
@@ -378,7 +398,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/villages/3", requestOptions)
+fetch("http://localhost:1337/crm-plugin/villages/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -388,16 +408,16 @@ fetch("http://localhost:1337/crm-plugin/villages/3", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
-  "is_active": true,
+  "id": 98,
+  "name": "Hivre",
   "abbreviation": null,
   "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
+  "is_active": true,
+  "state": null,
+  "district": null,
+  "created_at": "2020-05-22T06:25:50.650Z",
+  "updated_at": "2020-05-22T06:25:50.650Z",
+  "contacts": []
 }
 ```
 
@@ -420,4 +440,4 @@ This method deletes specific village by id and returns details of deleted villag
 
 | Parameter | Description                     |
 | --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| ID        | The ID of the village to delete |

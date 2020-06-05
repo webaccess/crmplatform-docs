@@ -41,16 +41,12 @@ fetch("http://localhost:1337/crm-plugin/activitytypes", requestOptions)
 ```json
 [
   {
-    "id": 2,
-    "name": "Gujarat",
+    "id": 1,
+    "name": "Horticulture",
     "is_active": true,
-    "abbreviation": null,
-    "identifier": null,
-    "country": null,
-    "created_at": "2020-05-13T14:36:12.354Z",
-    "updated_at": "2020-05-13T14:36:12.354Z",
-    "districts": [],
-    "villages": []
+    "created_at": "2020-05-15T17:57:09.304Z",
+    "updated_at": "2020-05-15T17:57:09.304Z",
+    "activities": []
   }
 ]
 ```
@@ -61,7 +57,7 @@ This method returns all the activitytype details by default or specific activity
 
 ### HTTP Request
 
-`GET http://localhost:1337/crm-plugin/villages`
+`GET http://localhost:1337/crm-plugin/activitytypes`
 
 ### Headers
 
@@ -72,7 +68,9 @@ This method returns all the activitytype details by default or specific activity
 
 ### URL Parameters
 
-Optional
+| Parameter | Description                               |
+| --------- | ----------------------------------------- |
+| Filters   | Column attributes in the table (Optional) |
 
 ## Get a Specific Activitytype
 
@@ -112,16 +110,12 @@ fetch("http://localhost:1337/crm-plugin/activitytypes/1", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
+  "id": 1,
+  "name": "Horticulture",
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
+  "created_at": "2020-05-15T17:57:09.304Z",
+  "updated_at": "2020-05-15T17:57:09.304Z",
+  "activities": []
 }
 ```
 
@@ -131,7 +125,7 @@ This method returns specific activitytype details by id.
 
 ### HTTP Request
 
-`GET http://localhost:1337/crm-plugin/villages/<ID>`
+`GET http://localhost:1337/crm-plugin/activitytypes/<ID>`
 
 ### Headers
 
@@ -142,9 +136,9 @@ This method returns specific activitytype details by id.
 
 ### URL Parameters
 
-| Parameter | Description                       |
-| --------- | --------------------------------- |
-| ID        | The ID of the country to retrieve |
+| Parameter | Description                            |
+| --------- | -------------------------------------- |
+| ID        | The ID of the activitytype to retrieve |
 
 ## Save a Specific Activitytype
 
@@ -191,16 +185,12 @@ fetch("http://localhost:1337/crm-plugin/activitytypes", requestOptions)
 
 ```json
 {
-  "id": 4,
-  "name": "maharashtra",
+  "id": 2,
+  "name": "piggery",
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-22T15:16:49.908Z",
-  "updated_at": "2020-05-22T15:16:49.908Z",
-  "districts": [],
-  "villages": []
+  "created_at": "2020-06-04T13:06:29.683Z",
+  "updated_at": "2020-06-04T13:06:29.683Z",
+  "activities": []
 }
 ```
 
@@ -210,7 +200,7 @@ This method creates an activitytype with the attribute parameters passed to this
 
 ### HTTP Request
 
-`POST http://localhost:1337/crm-plugin/villages/<ID>`
+`POST http://localhost:1337/crm-plugin/activitytypes`
 
 ### Headers
 
@@ -221,11 +211,13 @@ This method creates an activitytype with the attribute parameters passed to this
 
 ### URL Parameters
 
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| Parameter         | Description                                                   |
+| ----------------- | ------------------------------------------------------------- |
+| title             | The name of the activity                                      |
+| is_active         | Active status of activitytype (Boolean value : true or false) |
+| Column attributes | Optional                                                      |
 
-## Update a Activitytype
+## Update a Specific Activitytype
 
 ```python
 import http.client
@@ -233,7 +225,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = "{\n\t\"name\": \"fishery -- test\",\n    \"is_active\": \"true\"\n}"
 headers = {}
-conn.request("PUT", "/activitytypes/3", payload, headers)
+conn.request("PUT", "/activitytypes/2", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -248,7 +240,7 @@ wget --no-check-certificate --quiet \
 	"name": "fishery -- test",
     "is_active": "true"
 }' \
-   'http://localhost:1337/crm-plugin/activitytypes/3'
+   'http://localhost:1337/crm-plugin/activitytypes/2'
 ```
 
 ```javascript
@@ -260,10 +252,23 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activitytypes/3", requestOptions)
+fetch("http://localhost:1337/crm-plugin/activitytypes/2", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "fishery -- test",
+  "is_active": true,
+  "created_at": "2020-06-04T13:06:29.683Z",
+  "updated_at": "2020-06-04T13:06:29.683Z",
+  "activities": []
+}
 ```
 
 ### Description
@@ -295,7 +300,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/activitytypes/3", payload, headers)
+conn.request("DELETE", "/activitytypes/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -306,7 +311,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/activitytypes/3'
+   'http://localhost:1337/crm-plugin/activitytypes/1'
 ```
 
 ```javascript
@@ -318,7 +323,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activitytypes/3", requestOptions)
+fetch("http://localhost:1337/crm-plugin/activitytypes/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -328,16 +333,12 @@ fetch("http://localhost:1337/crm-plugin/activitytypes/3", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
+  "id": 1,
+  "name": "Horticulture",
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
+  "created_at": "2020-05-15T17:57:09.304Z",
+  "updated_at": "2020-05-15T17:57:09.304Z",
+  "activities": []
 }
 ```
 
@@ -347,7 +348,7 @@ This method deletes specific activitytype by id and returns details of deleted a
 
 ### HTTP Request
 
-`DELETE http://localhost:1337/crm-plugin/villages/<ID>`
+`DELETE http://localhost:1337/crm-plugin/activitytypes/<ID>`
 
 ### Headers
 
@@ -358,6 +359,6 @@ This method deletes specific activitytype by id and returns details of deleted a
 
 ### URL Parameters
 
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| Parameter | Description                          |
+| --------- | ------------------------------------ |
+| ID        | The ID of the activitytype to delete |

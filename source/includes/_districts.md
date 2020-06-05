@@ -41,16 +41,15 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 ```json
 [
   {
-    "id": 2,
-    "name": "Gujarat",
+    "id": 1,
+    "name": "Sangli",
     "is_active": true,
     "abbreviation": null,
     "identifier": null,
-    "country": null,
-    "created_at": "2020-05-13T14:36:12.354Z",
-    "updated_at": "2020-05-13T14:36:12.354Z",
-    "districts": [],
-    "districts": []
+    "state": null,
+    "created_at": "2020-05-19T10:02:49.989Z",
+    "updated_at": "2020-05-19T10:02:50.422Z",
+    "villages": []
   }
 ]
 ```
@@ -72,7 +71,9 @@ This method returns all the district details by default or specific district det
 
 ### URL Parameters
 
-Optional
+| Parameter | Description                               |
+| --------- | ----------------------------------------- |
+| Filters   | Column attributes in the table (Optional) |
 
 ## Get a Specific District
 
@@ -111,18 +112,17 @@ fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Gujarat",
-  "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "districts": []
-}
+    {
+        "id": 1,
+        "name": "Sangli",
+        "is_active": true,
+        "abbreviation": null,
+        "identifier": null,
+        "state": null,
+        "created_at": "2020-05-19T10:02:49.989Z",
+        "updated_at": "2020-05-19T10:02:50.422Z",
+        "villages": []
+    },
 ```
 
 ### Description
@@ -142,9 +142,9 @@ This method returns specific district details by id.
 
 ### URL Parameters
 
-| Parameter | Description                       |
-| --------- | --------------------------------- |
-| ID        | The ID of the country to retrieve |
+| Parameter | Description                        |
+| --------- | ---------------------------------- |
+| ID        | The ID of the district to retrieve |
 
 ## Count All/Specific Districts
 
@@ -183,7 +183,7 @@ fetch("http://localhost:1337/crm-plugin/districts/count", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-2
+1
 ```
 
 ### Description
@@ -250,16 +250,15 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 
 ```json
 {
-  "id": 4,
-  "name": "maharashtra",
+  "id": 2,
+  "name": "andheri",
   "is_active": true,
   "abbreviation": null,
   "identifier": null,
-  "country": null,
-  "created_at": "2020-05-22T15:16:49.908Z",
-  "updated_at": "2020-05-22T15:16:49.908Z",
-  "districts": [],
-  "districts": []
+  "state": null,
+  "created_at": "2020-06-04T11:53:03.795Z",
+  "updated_at": "2020-06-04T11:53:03.795Z",
+  "villages": []
 }
 ```
 
@@ -269,7 +268,87 @@ This method creates a district with the attribute parameters passed to this meth
 
 ### HTTP Request
 
-`POST http://localhost:1337/crm-plugin/districts/<ID>`
+`POST http://localhost:1337/crm-plugin/districts`
+
+### Headers
+
+| Key           | Value            |
+| ------------- | ---------------- |
+| Content-Type  | application/json |
+| Authorization | Bearer API_TOKEN |
+
+### Request Parameters
+
+| Parameter         | Description                                               |
+| ----------------- | --------------------------------------------------------- |
+| name              | The name of the district                                  |
+| is_active         | Active status of district (Boolean value : true or false) |
+| Column attributes | Column attributes in the table (Optional)                 |
+
+## Update a Specific District
+
+```python
+import http.client
+import mimetypes
+conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
+payload = "{\n\t\"name\": \"andheri --test\",\n    \"is_active\": \"true\"\n}"
+headers = {}
+conn.request("PUT", "/districts/2", payload, headers)
+res = conn.getresponse()
+data = res.read()
+print(data.decode("utf-8"))
+```
+
+```shell
+wget --no-check-certificate --quiet \
+  --method PUT \
+  --timeout=0 \
+  --header '' \
+  --body-data '{
+	"name": "andheri --test",
+    "is_active": "true"
+}' \
+   'http://localhost:1337/crm-plugin/districts/2'
+```
+
+```javascript
+var raw = '{\n	"name": "andheri --test",\n    "is_active": "true"\n}';
+
+var requestOptions = {
+  method: "PUT",
+  body: raw,
+  redirect: "follow",
+};
+
+fetch("http://localhost:1337/crm-plugin/districts/2", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
+```
+
+The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "andheri --test",
+  "is_active": true,
+  "abbreviation": null,
+  "identifier": null,
+  "state": null,
+  "created_at": "2020-06-04T11:53:03.795Z",
+  "updated_at": "2020-06-04T11:55:10.831Z",
+  "villages": []
+}
+```
+
+### Description
+
+This method updates the specific district by id with attribute parameters passed to it.It returns details of updated district
+
+### HTTP Request
+
+`UPDATE http://localhost:1337/crm-plugin/districts/<ID>`
 
 ### Headers
 
@@ -280,9 +359,9 @@ This method creates a district with the attribute parameters passed to this meth
 
 ### URL Parameters
 
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| ID        | The ID of the country to delete |
+| Parameter | Description                      |
+| --------- | -------------------------------- |
+| ID        | The ID of the district to update |
 
 ## Delete a Specific District
 
@@ -292,7 +371,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/districts/3", payload, headers)
+conn.request("DELETE", "/districts/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -303,7 +382,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/districts/3'
+   'http://localhost:1337/crm-plugin/districts/1'
 ```
 
 ```javascript
@@ -315,7 +394,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/districts/3", requestOptions)
+fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -325,16 +404,15 @@ fetch("http://localhost:1337/crm-plugin/districts/3", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
+  "id": 1,
+  "name": "Sangli",
   "is_active": true,
   "abbreviation": null,
   "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "districts": []
+  "state": null,
+  "created_at": "2020-05-19T10:02:49.989Z",
+  "updated_at": "2020-05-19T10:02:50.422Z",
+  "villages": []
 }
 ```
 
