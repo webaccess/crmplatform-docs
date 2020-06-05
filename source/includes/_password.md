@@ -1,6 +1,8 @@
 # Forgot Password/Reset Password/Validate Email Api
 
-## Forgot Password
+User can reset password via this methods
+
+## Reset Password Api
 
 ```python
 import http.client
@@ -43,30 +45,9 @@ fetch("http://localhost:1337/auth/reset-password", requestOptions)
   .catch((error) => console.log("error", error));
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "username": "ankita.shinde",
-    "email": "demo@gmail.com",
-    "provider": "local",
-    "confirmed": true,
-    "blocked": false,
-    "role": {
-      "id": 1,
-      "name": "Authenticated",
-      "description": "Default role given to authenticated user.",
-      "type": "authenticated"
-    },
-    "created_at": "2020-05-18T06:25:24.731Z",
-    "updated_at": "2020-05-28T12:43:51.512Z"
-  }
-]
-```
-
 ### Description
+
+New password with verification code received by user is sent which resets the user password
 
 ### HTTP Request
 
@@ -85,7 +66,7 @@ fetch("http://localhost:1337/auth/reset-password", requestOptions)
 | -------------------- | ------------------------- |
 | privateCode          | Verification code         |
 | password             | New password              |
-| passwordConfirmation | New password is reentered |
+| passwordConfirmation | New password is confirmed |
 
 ## Email Validation Api
 
@@ -127,13 +108,9 @@ fetch("http://localhost:1337/auth/send-email-confirmation", requestOptions)
   .catch((error) => console.log("error", error));
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-
-```
-
 ### Description
+
+This method is used to validate user's email id by sending verification code to it.
 
 ### HTTP Request
 
@@ -193,13 +170,9 @@ fetch("http://localhost:1337/auth/forgot-password", requestOptions)
   .catch((error) => console.log("error", error));
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-
-```
-
 ### Description
+
+This method sends message to the entered email address containing a link to reset password.
 
 ### HTTP Request
 
