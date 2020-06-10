@@ -41,17 +41,86 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
 ```json
 [
   {
+    "id": 1,
+    "name": "Goa",
+    "is_active": true,
+    "abbreviation": "GA",
+    "identifier": "GA",
+    "country": {
+      "id": 1,
+      "name": "India",
+      "is_active": true,
+      "abbreviation": "IN",
+      "identifier": "IN",
+      "created_at": "2020-06-08T15:34:11.390Z",
+      "updated_at": "2020-06-08T15:34:11.390Z"
+    },
+    "created_at": "2020-06-08T17:00:27.897Z",
+    "updated_at": "2020-06-08T17:00:27.897Z",
+    "districts": [{
+      "id": 1,
+      "name": "North Goa",
+      "is_active": true,
+      "abbreviation": "NG",
+      "identifier": "NG",
+      "state": 1,
+      "created_at": "2020-06-08T17:38:17.853Z",
+      "updated_at": "2020-06-08T17:38:17.853Z"
+    }, {
+      "id": 2,
+      "name": "South Goa",
+      "is_active": true,
+      "abbreviation": "SG",
+      "identifier": "SG",
+      "state": 1,
+      "created_at": "2020-06-08T17:38:17.860Z",
+      "updated_at": "2020-06-08T17:38:17.860Z"
+    }],
+    "villages": []
+  },
+  {
     "id": 2,
     "name": "Gujarat",
     "is_active": true,
-    "abbreviation": null,
-    "identifier": null,
-    "country": null,
-    "created_at": "2020-05-13T14:36:12.354Z",
-    "updated_at": "2020-05-13T14:36:12.354Z",
-    "districts": [],
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": {
+      "id": 1,
+      "name": "India",
+      "is_active": true,
+      "abbreviation": "IN",
+      "identifier": "IN",
+      "created_at": "2020-06-08T15:34:11.390Z",
+      "updated_at": "2020-06-08T15:34:11.390Z"
+    },
+    "created_at": "2020-06-09T14:31:52.037Z",
+    "updated_at": "2020-06-09T14:31:52.037Z",
+    "districts": [
+      {
+        "id": 3,
+        "name": "Ahmedabad",
+        "is_active": true,
+        "abbreviation": "AH",
+        "identifier": "AH",
+        "state": 2,
+        "created_at": "2020-06-09T14:31:52.718Z",
+        "updated_at": "2020-06-09T14:31:52.718Z"
+      },
+      {
+        "id": 4,
+        "name": "Bhavnagar",
+        "is_active": true,
+        "abbreviation": "BV",
+        "identifier": "BV",
+        "state": 2,
+        "created_at": "2020-06-09T14:31:52.721Z",
+        "updated_at": "2020-06-09T14:31:52.721Z"
+      },
+      {...}
+    ],
     "villages": []
-  }
+  },
+  {...}
 ]
 ```
 
@@ -84,7 +153,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("GET", "/states/2", payload, headers)
+conn.request("GET", "/states/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -95,7 +164,7 @@ wget --no-check-certificate --quiet \
   --method GET \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/states/2'
+   'http://localhost:1337/crm-plugin/states/1'
 ```
 
 ```javascript
@@ -104,7 +173,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/states/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/states/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -114,15 +183,44 @@ fetch("http://localhost:1337/crm-plugin/states/2", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Gujarat",
+  "id": 1,
+  "name": "Goa",
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
+  "abbreviation": "GA",
+  "identifier": "GA",
+  "country": {
+    "id": 1,
+    "name": "India",
+    "is_active": true,
+    "abbreviation": "IN",
+    "identifier": "IN",
+    "created_at": "2020-06-08T15:34:11.390Z",
+    "updated_at": "2020-06-08T15:34:11.390Z"
+  },
+  "created_at": "2020-06-08T17:00:27.897Z",
+  "updated_at": "2020-06-08T17:00:27.897Z",
+  "districts": [
+    {
+      "id": 1,
+      "name": "North Goa",
+      "is_active": true,
+      "abbreviation": "NG",
+      "identifier": "NG",
+      "state": 1,
+      "created_at": "2020-06-08T17:38:17.853Z",
+      "updated_at": "2020-06-08T17:38:17.853Z"
+    },
+    {
+      "id": 2,
+      "name": "South Goa",
+      "is_active": true,
+      "abbreviation": "SG",
+      "identifier": "SG",
+      "state": 1,
+      "created_at": "2020-06-08T17:38:17.860Z",
+      "updated_at": "2020-06-08T17:38:17.860Z"
+    }
+  ],
   "villages": []
 }
 ```
@@ -215,7 +313,7 @@ This method returns total number of data items present in state table by default
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\r\n\t\"name\": \"maharashtra\",\r\n    \"is_active\": \"true\"\r\n}"
+payload = "{\r\n\t\"name\": \"Maharashtra\",\r\n    \"is_active\": \"true\"\r\n}"
 headers = {}
 conn.request("POST", "/states", payload, headers)
 res = conn.getresponse()
@@ -229,7 +327,7 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "maharashtra",
+	"name": "Maharashtra",
     "is_active": "true"
 }' \
    'http://localhost:1337/crm-plugin/states'
@@ -237,7 +335,7 @@ wget --no-check-certificate --quiet \
 
 ```javascript
 var raw = "{
-\n	\"name\": \"maharashtra\",
+\n	\"name\": \"Maharashtra\",
 \n    \"is_active\": \"true\"
 \n}";
 
@@ -257,16 +355,43 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
 
 ```json
 {
-  "id": 4,
-  "name": "maharashtra",
-  "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-22T15:16:49.908Z",
-  "updated_at": "2020-05-22T15:16:49.908Z",
-  "districts": [],
-  "villages": []
+	"id": 3,
+	"name": "Maharashtra",
+	"is_active": true,
+	"abbreviation": "MH",
+	"identifier": "MH",
+	"country": {
+		"id": 1,
+		"name": "India",
+		"is_active": true,
+		"abbreviation": "IN",
+		"identifier": "IN",
+		"created_at": "2020-06-08T15:34:11.390Z",
+		"updated_at": "2020-06-08T15:34:11.390Z"
+	},
+	"created_at": "2020-06-08T17:00:27.916Z",
+	"updated_at": "2020-06-08T17:00:27.916Z",
+	"districts": [{
+		"id": 10,
+		"name": "Solapur",
+		"is_active": true,
+		"abbreviation": "SO",
+		"identifier": "SO",
+		"state": 3,
+		"created_at": "2020-06-09T14:29:23.112Z",
+		"updated_at": "2020-06-09T14:29:23.112Z"
+	}, {
+		"id": 11,
+		"name": "Amravati",
+		"is_active": true,
+		"abbreviation": "AM",
+		"identifier": "AM",
+		"state": 3,
+		"created_at": "2020-06-09T14:29:23.060Z",
+		"updated_at": "2020-06-09T14:29:23.060Z"
+	},
+  {...}],
+	"villages": []
 }
 ```
 
@@ -299,9 +424,9 @@ This method creates a state with the attribute parameters passed to this method 
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\r\n\t\"name\": \"maharashtra -test\",\r\n    \"is_active\": \"true\"\r\n}"
+payload = "{\r\n\t\"name\": \"Maharashtra --test\",\r\n    \"is_active\": \"true\"\r\n}"
 headers = {}
-conn.request("PUT", "/states/2", payload, headers)
+conn.request("PUT", "/states/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -313,15 +438,15 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "maharashtra -test",
+	"name": "Maharashtra --test",
     "is_active": "true"
 }' \
-   'http://localhost:1337/crm-plugin/states/2'
+   'http://localhost:1337/crm-plugin/states/3'
 ```
 
 ```javascript
 var raw = "{
-\n	\"name\": \"maharashtra -test\",
+\n	\"name\": \"Maharashtra --test\",
 \n    \"is_active\": \"true\"
 \n}";
 
@@ -331,7 +456,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:1337/crm-plugin/states/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -341,16 +466,43 @@ fetch("http://localhost:1337/crm-plugin/states/2", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "maharashtra",
-  "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-22T15:16:49.908Z",
-  "updated_at": "2020-05-22T15:16:49.908Z",
-  "districts": [],
-  "villages": []
+	"id": 3,
+	"name": "Maharashtra --test",
+	"is_active": true,
+	"abbreviation": "MH",
+	"identifier": "MH",
+	"country": {
+		"id": 1,
+		"name": "India",
+		"is_active": true,
+		"abbreviation": "IN",
+		"identifier": "IN",
+		"created_at": "2020-06-08T15:34:11.390Z",
+		"updated_at": "2020-06-08T15:34:11.390Z"
+	},
+	"created_at": "2020-06-08T17:00:27.916Z",
+	"updated_at": "2020-06-08T17:00:27.916Z",
+	"districts": [{
+		"id": 10,
+		"name": "Solapur",
+		"is_active": true,
+		"abbreviation": "SO",
+		"identifier": "SO",
+		"state": 3,
+		"created_at": "2020-06-09T14:29:23.112Z",
+		"updated_at": "2020-06-09T14:29:23.112Z"
+	}, {
+		"id": 11,
+		"name": "Amravati",
+		"is_active": true,
+		"abbreviation": "AM",
+		"identifier": "AM",
+		"state": 3,
+		"created_at": "2020-06-09T14:29:23.060Z",
+		"updated_at": "2020-06-09T14:29:23.060Z"
+	},
+  {...}],
+	"villages": []
 }
 ```
 
@@ -389,7 +541,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/states/2", payload, headers)
+conn.request("DELETE", "/states/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -400,7 +552,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/states/2'
+   'http://localhost:1337/crm-plugin/states/3'
 ```
 
 ```javascript
@@ -412,7 +564,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/states/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -421,18 +573,89 @@ fetch("http://localhost:1337/crm-plugin/states/2", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Gujarat",
-  "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "country": null,
-  "created_at": "2020-05-13T14:36:12.354Z",
-  "updated_at": "2020-05-13T14:36:12.354Z",
-  "districts": [],
-  "villages": []
-}
+[
+  {
+    "id": 1,
+    "name": "Goa",
+    "is_active": true,
+    "abbreviation": "GA",
+    "identifier": "GA",
+    "country": {
+      "id": 1,
+      "name": "India",
+      "is_active": true,
+      "abbreviation": "IN",
+      "identifier": "IN",
+      "created_at": "2020-06-08T15:34:11.390Z",
+      "updated_at": "2020-06-08T15:34:11.390Z"
+    },
+    "created_at": "2020-06-08T17:00:27.897Z",
+    "updated_at": "2020-06-08T17:00:27.897Z",
+    "districts": [{
+      "id": 1,
+      "name": "North Goa",
+      "is_active": true,
+      "abbreviation": "NG",
+      "identifier": "NG",
+      "state": 1,
+      "created_at": "2020-06-08T17:38:17.853Z",
+      "updated_at": "2020-06-08T17:38:17.853Z"
+    }, {
+      "id": 2,
+      "name": "South Goa",
+      "is_active": true,
+      "abbreviation": "SG",
+      "identifier": "SG",
+      "state": 1,
+      "created_at": "2020-06-08T17:38:17.860Z",
+      "updated_at": "2020-06-08T17:38:17.860Z"
+    }],
+    "villages": []
+  },
+  {
+    "id": 2,
+    "name": "Gujarat",
+    "is_active": true,
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": {
+      "id": 1,
+      "name": "India",
+      "is_active": true,
+      "abbreviation": "IN",
+      "identifier": "IN",
+      "created_at": "2020-06-08T15:34:11.390Z",
+      "updated_at": "2020-06-08T15:34:11.390Z"
+    },
+    "created_at": "2020-06-09T14:31:52.037Z",
+    "updated_at": "2020-06-09T14:31:52.037Z",
+    "districts": [
+      {
+        "id": 3,
+        "name": "Ahmedabad",
+        "is_active": true,
+        "abbreviation": "AH",
+        "identifier": "AH",
+        "state": 2,
+        "created_at": "2020-06-09T14:31:52.718Z",
+        "updated_at": "2020-06-09T14:31:52.718Z"
+      },
+      {
+        "id": 4,
+        "name": "Bhavnagar",
+        "is_active": true,
+        "abbreviation": "BV",
+        "identifier": "BV",
+        "state": 2,
+        "created_at": "2020-06-09T14:31:52.721Z",
+        "updated_at": "2020-06-09T14:31:52.721Z"
+      },
+      {...}
+    ],
+    "villages": []
+  },
+  {...}
+]
 ```
 
 ### Description

@@ -45,13 +45,23 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
 [
   {
     "id": 1,
-    "name": "tag1",
+    "name": "Tag 1",
     "description": null,
     "is_active": true,
-    "created_at": "2020-06-04T13:19:23.880Z",
-    "updated_at": "2020-06-04T13:19:23.880Z",
+    "created_at": "2020-06-10T10:36:15.485Z",
+    "updated_at": "2020-06-10T10:36:15.485Z",
     "contacttags": []
-  }
+  },
+  {
+    "id": 2,
+    "name": "Tag 2",
+    "description": null,
+    "is_active": true,
+    "created_at": "2020-06-10T10:36:15.485Z",
+    "updated_at": "2020-06-10T10:36:15.485Z",
+    "contacttags": []
+  },
+  {...}
 ]
 ```
 
@@ -115,11 +125,11 @@ fetch("http://localhost:1337/crm-plugin/tags/1", requestOptions)
 ```json
 {
   "id": 1,
-  "name": "tag1",
+  "name": "Tag 1",
   "description": null,
   "is_active": true,
-  "created_at": "2020-06-04T13:19:23.880Z",
-  "updated_at": "2020-06-04T13:19:23.880Z",
+  "created_at": "2020-06-10T10:36:15.485Z",
+  "updated_at": "2020-06-10T10:36:15.485Z",
   "contacttags": []
 }
 ```
@@ -151,7 +161,7 @@ This method returns specific tag details by id
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\":\"tag7\"\n\t\n}"
+payload = "{\n\t\"name\":\"Tag 4\"\n\t\n}"
 conn.request("POST", "/tags", payload, headers)
 res = conn.getresponse()
 data = res.read()
@@ -164,7 +174,7 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name":"tag7"
+	"name":"Tag 4"
 
 }' \
    'http://localhost:1337/crm-plugin/tags'
@@ -172,7 +182,7 @@ wget --no-check-certificate --quiet \
 
 ```javascript
 var raw = "{
-\n	\"name\": \"tag7\"
+\n	\"name\": \"Tag 4\"
 \n}"
 
 var requestOptions = {
@@ -191,14 +201,14 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "tag7",
+  "id": 4,
+  "name": "Tag 4",
   "description": null,
   "is_active": true,
-  "created_at": "2020-06-04T13:19:23.880Z",
-  "updated_at": "2020-06-04T13:19:23.880Z",
+  "created_at": "2020-06-10T10:36:15.485Z",
+  "updated_at": "2020-06-10T10:36:15.485Z",
   "contacttags": []
-}
+},
 ```
 
 ### Description
@@ -233,7 +243,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = "{\n    \"is_active\": false,\n    \"contacts\": [\n        1\n    ]\n}"
 headers = {}
-conn.request("PUT", "/tags/2", payload, headers)
+conn.request("PUT", "/tags/4", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -250,11 +260,11 @@ wget --no-check-certificate --quiet \
         1
     ]
 }' \
-   'http://localhost:1337/crm-plugin/tags/2'
+   'http://localhost:1337/crm-plugin/tags/4'
 ```
 
 ```javascript
-var raw = '{\n	"name": "andheri --test"\n}';
+var raw = '{\n	"is_active": "false", \n    "contacts": [\n        1\n    ]\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -262,7 +272,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/tags/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/tags/", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -272,17 +282,17 @@ fetch("http://localhost:1337/crm-plugin/tags/2", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "tag7",
+  "id": 4,
+  "name": "Tag 4",
   "description": null,
   "is_active": false,
-  "created_at": "2020-06-04T13:19:23.880Z",
-  "updated_at": "2020-06-04T13:26:17.629Z",
+  "created_at": "2020-06-10T10:36:15.485Z",
+  "updated_at": "2020-06-10T10:36:15.485Z",
   "contacttags": [
     {
       "id": 1,
       "contact": 1,
-      "tag": 2,
+      "tag": 4,
       "created_at": "2020-06-04T13:26:17.453Z",
       "updated_at": "2020-06-04T13:26:17.477Z"
     }
@@ -320,7 +330,7 @@ fetch("http://localhost:1337/crm-plugin/tags/2", requestOptions)
         {
           "id": 1,
           "contact": 1,
-          "tag": 2,
+          "tag": 4,
           "created_at": "2020-06-04T13:26:17.453Z",
           "updated_at": "2020-06-04T13:26:17.477Z"
         }
@@ -365,7 +375,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/tags/1", payload, headers)
+conn.request("DELETE", "/tags/4", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -376,7 +386,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/tags/1'
+   'http://localhost:1337/crm-plugin/tags/4'
 ```
 
 ```javascript
@@ -388,7 +398,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/tags/1", requestOptions)
+fetch("http://localhost:1337/crm-plugin/tags/4", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -397,15 +407,27 @@ fetch("http://localhost:1337/crm-plugin/tags/1", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 1,
-  "name": "tag1",
-  "description": null,
-  "is_active": true,
-  "created_at": "2020-06-04T13:19:23.880Z",
-  "updated_at": "2020-06-04T13:19:23.880Z",
-  "contacttags": []
-}
+[
+  {
+    "id": 1,
+    "name": "Tag 1",
+    "description": null,
+    "is_active": true,
+    "created_at": "2020-06-10T10:36:15.485Z",
+    "updated_at": "2020-06-10T10:36:15.485Z",
+    "contacttags": []
+  },
+  {
+    "id": 2,
+    "name": "Tag 2",
+    "description": null,
+    "is_active": true,
+    "created_at": "2020-06-10T10:36:15.485Z",
+    "updated_at": "2020-06-10T10:36:15.485Z",
+    "contacttags": []
+  },
+  {...}
+]
 ```
 
 ### Description

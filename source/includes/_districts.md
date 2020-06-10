@@ -41,16 +41,46 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 ```json
 [
   {
-    "id": 1,
-    "name": "Sangli",
-    "is_active": true,
-    "abbreviation": null,
-    "identifier": null,
-    "state": null,
-    "created_at": "2020-05-19T10:02:49.989Z",
-    "updated_at": "2020-05-19T10:02:50.422Z",
-    "villages": []
-  }
+	"id": 1,
+	"name": "North Goa",
+	"is_active": true,
+	"abbreviation": "NG",
+	"identifier": "NG",
+	"state": {
+		"id": 1,
+		"name": "Goa",
+		"is_active": true,
+		"abbreviation": "GA",
+		"identifier": "GA",
+		"country": 1,
+		"created_at": "2020-06-08T17:00:27.897Z",
+		"updated_at": "2020-06-08T17:00:27.897Z"
+	},
+	"created_at": "2020-06-08T17:38:17.853Z",
+	"updated_at": "2020-06-08T17:38:17.853Z",
+	"villages": []
+},
+{
+	"id": 2,
+	"name": "South Goa",
+	"is_active": true,
+	"abbreviation": "SG",
+	"identifier": "SG",
+	"state": {
+		"id": 1,
+		"name": "Goa",
+		"is_active": true,
+		"abbreviation": "GA",
+		"identifier": "GA",
+		"country": 1,
+		"created_at": "2020-06-08T17:00:27.897Z",
+		"updated_at": "2020-06-08T17:00:27.897Z"
+	},
+	"created_at": "2020-06-08T17:38:17.853Z",
+	"updated_at": "2020-06-08T17:38:17.853Z",
+	"villages": []
+},
+{...}
 ]
 ```
 
@@ -112,17 +142,26 @@ fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-    {
-        "id": 1,
-        "name": "Sangli",
-        "is_active": true,
-        "abbreviation": null,
-        "identifier": null,
-        "state": null,
-        "created_at": "2020-05-19T10:02:49.989Z",
-        "updated_at": "2020-05-19T10:02:50.422Z",
-        "villages": []
+  {
+    "id": 1,
+    "name": "North Goa",
+    "is_active": true,
+    "abbreviation": "NG",
+    "identifier": "NG",
+    "state": {
+      "id": 1,
+      "name": "Goa",
+      "is_active": true,
+      "abbreviation": "GA",
+      "identifier": "GA",
+      "country": 1,
+      "created_at": "2020-06-08T17:00:27.897Z",
+      "updated_at": "2020-06-08T17:00:27.897Z"
     },
+    "created_at": "2020-06-08T17:38:17.853Z",
+    "updated_at": "2020-06-08T17:38:17.853Z",
+    "villages": []
+},
 ```
 
 ### Description
@@ -183,7 +222,7 @@ fetch("http://localhost:1337/crm-plugin/districts/count", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-1
+2
 ```
 
 ### Description
@@ -211,7 +250,7 @@ Optional
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"andheri\",\n    \"is_active\": \"true\"\n}"
+payload = "{\n\t\"name\": \"Ahmedabad\",\n    \"is_active\": \"true\"\n}"
 headers = {}
 conn.request("POST", "/districts", payload, headers)
 res = conn.getresponse()
@@ -225,14 +264,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "andheri",
-    "is_active": "true"
+	"name": "Ahmedabad",
+  "is_active": "true"
 }' \
    'http://localhost:1337/crm-plugin/districts'
 ```
 
 ```javascript
-var raw = '{\n	"name": "andheri",\n    "is_active": "true"\n}';
+var raw = '{\n	"name": "Ahmedabad",\n    "is_active": "true"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -250,14 +289,23 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "andheri",
+  "id": 3,
+  "name": "Ahmedabad",
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "state": null,
-  "created_at": "2020-06-04T11:53:03.795Z",
-  "updated_at": "2020-06-04T11:53:03.795Z",
+  "abbreviation": "AH",
+  "identifier": "AH",
+  "state": {
+    "id": 2,
+    "name": "Gujarat",
+    "is_active": true,
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": 1,
+    "created_at": "2020-06-08T17:00:27.897Z",
+    "updated_at": "2020-06-08T17:00:27.897Z"
+  },
+  "created_at": "2020-06-08T17:38:17.853Z",
+  "updated_at": "2020-06-08T17:38:17.853Z",
   "villages": []
 }
 ```
@@ -291,9 +339,9 @@ This method creates a district with the attribute parameters passed to this meth
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"andheri --test\",\n    \"is_active\": \"true\"\n}"
+payload = "{\n\t\"name\": \"Ahmedabad --test\",\n    \"is_active\": \"true\"\n}"
 headers = {}
-conn.request("PUT", "/districts/2", payload, headers)
+conn.request("PUT", "/districts/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -305,14 +353,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "andheri --test",
-    "is_active": "true"
+	"name": "Ahmedabad --test",
+  "is_active": "true"
 }' \
-   'http://localhost:1337/crm-plugin/districts/2'
+   'http://localhost:1337/crm-plugin/districts/3'
 ```
 
 ```javascript
-var raw = '{\n	"name": "andheri --test",\n    "is_active": "true"\n}';
+var raw = '{\n	"name": "Ahmedabad --test",\n    "is_active": "true"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -320,7 +368,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/districts/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/districts/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -330,14 +378,23 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "andheri --test",
+  "id": 3,
+  "name": "Ahmedabad --test",
   "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "state": null,
-  "created_at": "2020-06-04T11:53:03.795Z",
-  "updated_at": "2020-06-04T11:55:10.831Z",
+  "abbreviation": "AH",
+  "identifier": "AH",
+  "state": {
+    "id": 2,
+    "name": "Gujarat",
+    "is_active": true,
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": 1,
+    "created_at": "2020-06-08T17:00:27.897Z",
+    "updated_at": "2020-06-08T17:00:27.897Z"
+  },
+  "created_at": "2020-06-08T17:38:17.853Z",
+  "updated_at": "2020-06-08T17:38:17.853Z",
   "villages": []
 }
 ```
@@ -409,17 +466,49 @@ fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 1,
-  "name": "Sangli",
-  "is_active": true,
-  "abbreviation": null,
-  "identifier": null,
-  "state": null,
-  "created_at": "2020-05-19T10:02:49.989Z",
-  "updated_at": "2020-05-19T10:02:50.422Z",
-  "villages": []
-}
+[
+  {
+    "id": 2,
+    "name": "South Goa",
+    "is_active": true,
+    "abbreviation": "SG",
+    "identifier": "SG",
+    "state": {
+      "id": 1,
+      "name": "Goa",
+      "is_active": true,
+      "abbreviation": "GA",
+      "identifier": "GA",
+      "country": 1,
+      "created_at": "2020-06-08T17:00:27.897Z",
+      "updated_at": "2020-06-08T17:00:27.897Z"
+    },
+    "created_at": "2020-06-08T17:38:17.853Z",
+    "updated_at": "2020-06-08T17:38:17.853Z",
+    "villages": []
+  },
+  {
+    "id": 3,
+    "name": "Ahmedabad --test",
+    "is_active": true,
+    "abbreviation": "AH",
+    "identifier": "AH",
+    "state": {
+      "id": 2,
+      "name": "Gujarat",
+      "is_active": true,
+      "abbreviation": "GJ",
+      "identifier": "GJ",
+      "country": 1,
+      "created_at": "2020-06-08T17:00:27.897Z",
+      "updated_at": "2020-06-08T17:00:27.897Z"
+    },
+    "created_at": "2020-06-08T17:38:17.853Z",
+    "updated_at": "2020-06-08T17:38:17.853Z",
+    "villages": []
+  },
+  {...}
+]
 ```
 
 ### Description

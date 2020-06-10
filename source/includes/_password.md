@@ -8,7 +8,7 @@ Below apis describe Forgot password, Reset password and Email validation flow
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/auth")
-payload = "{\n\t\"email\":\"vishal.tambe@webaccessglobal.com\"\n\t\n}"
+payload = "{\n\t\"email\":\"demouser@example.com\"\n\t\n}"
 headers = {}
 conn.request("POST", "/forgot-password", payload, headers)
 res = conn.getresponse()
@@ -22,14 +22,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"email":"vishal.tambe@webaccessglobal.com"
+	"email":"demouser@example.com"
 
 }' \
    'http://localhost:1337/auth/forgot-password'
 ```
 
 ```javascript
-var raw = '{\n	"email":"vishal.tambe@webaccessglobal.com"\n	\n}';
+var raw = '{\n	"email":"demouser@example.com"\n	\n}';
 
 var requestOptions = {
   method: "POST",
@@ -70,7 +70,7 @@ This method sends message to the entered email address containing a link to rese
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/auth")
-payload = "{\n\t\"code\": \"privateCode\",\n    \"password\": \"vishal@123\",\n    \"passwordConfirmation\": \"vishal@123\"\n}"
+payload = "{\n\t\"code\": \"privateCode\",\n    \"password\": \"password\",\n    \"passwordConfirmation\": \"password\"\n}"
 headers = {}
 conn.request("POST", "/reset-password", payload, headers)
 res = conn.getresponse()
@@ -85,15 +85,15 @@ wget --no-check-certificate --quiet \
   --header '' \
   --body-data '{
 	"code": "privateCode",
-    "password": "vishal@123",
-    "passwordConfirmation": "vishal@123"
+    "password": "password",
+    "passwordConfirmation": "password"
 }' \
    'http://localhost:1337/auth/reset-password'
 ```
 
 ```javascript
 var raw =
-  '{\n	"code": "privateCode",\n    "password": "vishal@123",\n    "passwordConfirmation": "vishal@123"\n}';
+  '{\n	"code": "privateCode",\n    "password": "password",\n    "passwordConfirmation": "password"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -136,7 +136,7 @@ New password with verification code received by user is verified and user passwo
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/auth")
-payload = "{\n\t \"email\": \"vishal.tambe@webaccessglobal.com\"\n}"
+payload = "{\n\t \"email\": \"demouser@example.com\"\n}"
 headers = {}
 conn.request("POST", "/send-email-confirmation", payload, headers)
 res = conn.getresponse()
@@ -150,13 +150,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	 "email": "vishal.tambe@webaccessglobal.com"
+	 "email": "demouser@example.com"
 }' \
    'http://localhost:1337/auth/send-email-confirmation'
 ```
 
 ```javascript
-var raw = '{\n	 "email": "vishal.tambe@webaccessglobal.com"\n}';
+var raw = '{\n	 "email": "demouser@example.com"\n}';
 
 var requestOptions = {
   method: "POST",
