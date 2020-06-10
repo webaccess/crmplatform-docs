@@ -43,7 +43,7 @@ fetch("http://localhost:1337/users", requestOptions)
   {
     "id": 1,
     "username": "demoUser",
-    "email": "demouser@gmail.com",
+    "email": "demouser@example.com",
     "provider": "local",
     "confirmed": true,
     "blocked": false,
@@ -60,7 +60,7 @@ fetch("http://localhost:1337/users", requestOptions)
     {
       "id": 2,
       "username": "demoUser2",
-      "email": "demo@gmail.com",
+      "email": "demo@example.com",
       "provider": "local",
       "confirmed": true,
       "blocked": false,
@@ -139,7 +139,7 @@ fetch("http://localhost:1337/users/1", requestOptions)
 {
   "id": 1,
   "username": "demoUser",
-  "email": "demouser@gmail.com",
+  "email": "demouser@example.com",
   "provider": "local",
   "confirmed": true,
   "blocked": false,
@@ -181,7 +181,7 @@ This method returns specific user details by id.
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/users")
-payload = "{\n\t \"username\": \"testuser\",\n        \"email\": \"testUser@gmail.com\",\n        \"provider\": \"local\",\n        \"confirmed\": true,\n        \"password\":\"demo@123\",\n        \"blocked\": false\n}"
+payload = "{\n\t \"username\": \"testuser\",\n        \"email\": \"testUser@example.com\",\n        \"provider\": \"local\",\n        \"confirmed\": true,\n        \"password\":\"password\",\n        \"blocked\": false\n}"
 headers = {}
 conn.request("POST", "", payload, headers)
 res = conn.getresponse()
@@ -196,10 +196,10 @@ wget --no-check-certificate --quiet \
   --header '' \
   --body-data '{
 	 "username": "testUser",
-        "email": "testuser@gmail.com",
+        "email": "testuser@example.com",
         "provider": "local",
         "confirmed": true,
-        "password":"demo@123",
+        "password":"password",
         "blocked": false
 }' \
    'http://localhost:1337/users'
@@ -207,7 +207,7 @@ wget --no-check-certificate --quiet \
 
 ```javascript
 var raw =
-  '{\n	 "username": "testUser",\n        "email": "testuser@gmail.com",\n        "provider": "local",\n        "confirmed": true,\n        "password":"demo@123",\n        "blocked": false\n}';
+  '{\n	 "username": "testUser",\n        "email": "testuser@example.com",\n        "provider": "local",\n        "confirmed": true,\n        "password":"password",\n        "blocked": false\n}';
 
 var requestOptions = {
   method: "POST",
@@ -227,9 +227,9 @@ fetch("http://localhost:1337/users", requestOptions)
 {
   "id": 3,
   "username": "testUser",
-  "email": "testuser@gmail.com",
+  "email": "testuser@example.com",
   "provider": "local",
-  "password": "$2a$10$sqxFALfAsf47D9i2uDIxHe3sGLDUe3egkhvLtBLstypPCkQKXR49a",
+  "password": "$2a$10$kkQwn0/fI0VOK3iYRkIo.eSYuOJuqGgL0TZFwOABOOZ5yKNLqwwnq",
   "resetPasswordToken": null,
   "confirmed": true,
   "blocked": false,
@@ -314,9 +314,9 @@ The above command returns JSON structured like this:
 {
   "id": 3,
   "username": "testuser2",
-  "email": "testuser@gmail.com",
+  "email": "testuser@example.com",
   "provider": "local",
-  "password": "$2a$10$sqxFALfAsf47D9i2uDIxHe3sGLDUe3egkhvLtBLstypPCkQKXR49a",
+  "password": "$2a$10$kkQwn0/fI0VOK3iYRkIo.eSYuOJuqGgL0TZFwOABOOZ5yKNLqwwnq",
   "resetPasswordToken": null,
   "confirmed": true,
   "blocked": false,
@@ -401,9 +401,9 @@ fetch("http://localhost:1337/users/3", requestOptions)
 {
   "id": 3,
   "username": "testuser2",
-  "email": "testuser@gmail.com",
+  "email": "testuser@example.com",
   "provider": "local",
-  "password": "$2a$10$sqxFALfAsf47D9i2uDIxHe3sGLDUe3egkhvLtBLstypPCkQKXR49a",
+  "password": "$2a$10$kkQwn0/fI0VOK3iYRkIo.eSYuOJuqGgL0TZFwOABOOZ5yKNLqwwnq",
   "resetPasswordToken": null,
   "confirmed": true,
   "blocked": false,

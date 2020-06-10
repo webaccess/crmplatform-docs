@@ -55,7 +55,7 @@ fetch("http://localhost:1337/crm-plugin/contact", requestOptions)
     "organization": {
       "id": 1,
       "name": "NewTech",
-      "contact": 156,
+      "contact": 1,
       "created_at": "2020-06-04T11:15:32.751Z",
       "updated_at": "2020-06-04T11:15:33.054Z"
     },
@@ -82,7 +82,13 @@ fetch("http://localhost:1337/crm-plugin/contact", requestOptions)
     "city": null,
     "pincode": null,
     "contact_type": "organization",
-    "organization": null,
+    "organization": {
+      "id": 2,
+      "name": "National Horticultural Society",
+      "contact": 2,
+      "created_at": "2020-05-15T18:05:11.520Z",
+      "updated_at": "2020-05-15T18:05:11.520Z"
+    },
     "country": null,
     "state": null,
     "district": null,
@@ -171,7 +177,7 @@ fetch("http://localhost:1337/crm-plugin/contact/1", requestOptions)
   "organization": {
     "id": 1,
     "name": "NewTech",
-    "contact": 156,
+    "contact": 1,
     "created_at": "2020-06-04T11:15:32.751Z",
     "updated_at": "2020-06-04T11:15:33.054Z"
   },
@@ -373,7 +379,7 @@ The above command returns JSON structured like this:
   "organization": {
     "id": 3,
     "name": "Tech Providers --test",
-    "contact": 2,
+    "contact": 3,
     "created_at": "2020-06-04T11:21:35.951Z",
     "updated_at": "2020-06-04T11:24:49.450Z"
   },
@@ -472,7 +478,7 @@ fetch("http://localhost:1337/crm-plugin/contact/1", requestOptions)
   "organization": {
     "id": 1,
     "name": "NewTech",
-    "contact": 156,
+    "contact": 1,
     "created_at": "2020-06-04T11:15:32.751Z",
     "updated_at": "2020-06-04T11:15:33.054Z"
   },

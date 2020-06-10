@@ -42,7 +42,7 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
 [
   {
     "id": 1,
-    "title": "fishery",
+    "title": "Fishery",
     "start_datetime": null,
     "end_datetime": null,
     "description": null,
@@ -53,7 +53,7 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
   },
     {
     "id": 2,
-    "title": "farming",
+    "title": "Farming",
     "start_datetime": null,
     "end_datetime": null,
     "description": null,
@@ -126,7 +126,7 @@ fetch("http://localhost:1337/crm-plugin/activities/1", requestOptions)
 ```json
 {
   "id": 1,
-  "title": "fishery",
+  "title": "Fishery",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,
@@ -164,7 +164,7 @@ This method returns specific activity details by id.
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"title\":\"ponding\"\n}"
+payload = "{\n\t\"title\":\"Ponding\"\n}"
 headers = {}
 conn.request("POST", "/activities", payload, headers)
 res = conn.getresponse()
@@ -178,13 +178,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"title":"ponding"
+	"title":"Ponding"
 }' \
    'http://localhost:1337/crm-plugin/activities'
 ```
 
 ```javascript
-var raw = '{\n	"title":"ponding"\n}';
+var raw = '{\n	"title":"Ponding"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -203,7 +203,7 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
 ```json
 {
   "id": 3,
-  "title": "ponding",
+  "title": "Ponding",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,
@@ -243,7 +243,7 @@ This method creates an activity with the attribute parameters passed to this met
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"title\":\"piggery --test\"\n}"
+payload = "{\n\t\"title\":\"Piggery --test\"\n}"
 headers = {}
 conn.request("PUT", "/activities/3", payload, headers)
 res = conn.getresponse()
@@ -257,13 +257,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"title":"piggery --test"
+	"title":"Piggery --test"
 }' \
    'http://localhost:1337/crm-plugin/activities/3'
 ```
 
 ```javascript
-var raw = '{\n	"title":"piggery --test"\n}';
+var raw = '{\n	"title":"Piggery --test"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -282,7 +282,7 @@ The above command returns JSON structured like this:
 ```json
 {
   "id": 3,
-  "title": "piggery --test",
+  "title": "Piggery --test",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,
@@ -362,7 +362,7 @@ fetch("http://localhost:1337/crm-plugin/activities/1", requestOptions)
 ```json
 {
   "id": 1,
-  "title": "fishery",
+  "title": "Fishery",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,

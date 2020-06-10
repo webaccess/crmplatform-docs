@@ -229,7 +229,7 @@ Optional
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"thane\"\n}"
+payload = "{\n\t\"name\": \"Narodi\"\n}"
 headers = {}
 conn.request("POST", "/villages", payload, headers)
 res = conn.getresponse()
@@ -243,13 +243,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "thane"
+	"name": "Narodi"
 }' \
    'http://localhost:1337/crm-plugin/villages'
 ```
 
 ```javascript
-var raw = '{\n	"name": "Thane"\n}';
+var raw = '{\n	"name": "Narodi"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -267,8 +267,8 @@ fetch("http://localhost:1337/crm-plugin/villages", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "Thane",
+  "id": 3,
+  "name": "Narodi",
   "abbreviation": null,
   "identifier": null,
   "is_active": true,
@@ -308,7 +308,7 @@ This method creates a village with the attribute parameters passed to this metho
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"thane --test\"\n}"
+payload = "{\n\t\"name\": \"Narodi --test\"\n}"
 headers = {}
 conn.request("PUT", "/villages/3", payload, headers)
 res = conn.getresponse()
@@ -322,13 +322,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "thane --test"
+	"name": "Narodi --test"
 }' \
    'http://localhost:1337/crm-plugin/villages/3'
 ```
 
 ```javascript
-var raw = '{\n	"name": "thane --test"\n}';
+var raw = '{\n	"name": "Narodi --test"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -347,7 +347,7 @@ The above command returns JSON structured like this:
 ```json
 {
   "id": 3,
-  "name": "Thane --test",
+  "name": "Narodi --test",
   "abbreviation": null,
   "identifier": null,
   "is_active": true,
@@ -427,7 +427,7 @@ fetch("http://localhost:1337/crm-plugin/villages/1", requestOptions)
 
 ```json
 {
-  "id": 98,
+  "id": 1,
   "name": "Hivre",
   "abbreviation": null,
   "identifier": null,
