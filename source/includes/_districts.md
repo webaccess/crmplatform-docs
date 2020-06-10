@@ -52,7 +52,7 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 		"is_active": true,
 		"abbreviation": "GA",
 		"identifier": "GA",
-		"country": 6,
+		"country": 1,
 		"created_at": "2020-06-08T17:00:27.897Z",
 		"updated_at": "2020-06-08T17:00:27.897Z"
 	},
@@ -72,7 +72,7 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 		"is_active": true,
 		"abbreviation": "GA",
 		"identifier": "GA",
-		"country": 6,
+		"country": 1,
 		"created_at": "2020-06-08T17:00:27.897Z",
 		"updated_at": "2020-06-08T17:00:27.897Z"
 	},
@@ -154,7 +154,7 @@ fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
       "is_active": true,
       "abbreviation": "GA",
       "identifier": "GA",
-      "country": 6,
+      "country": 1,
       "created_at": "2020-06-08T17:00:27.897Z",
       "updated_at": "2020-06-08T17:00:27.897Z"
     },
@@ -250,7 +250,7 @@ Optional
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"Karaikal\",\n    \"is_active\": \"true\"\n}"
+payload = "{\n\t\"name\": \"Ahmedabad\",\n    \"is_active\": \"true\"\n}"
 headers = {}
 conn.request("POST", "/districts", payload, headers)
 res = conn.getresponse()
@@ -264,14 +264,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "Karaikal",
+	"name": "Ahmedabad",
   "is_active": "true"
 }' \
    'http://localhost:1337/crm-plugin/districts'
 ```
 
 ```javascript
-var raw = '{\n	"name": "Karaikal",\n    "is_active": "true"\n}';
+var raw = '{\n	"name": "Ahmedabad",\n    "is_active": "true"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -290,17 +290,17 @@ fetch("http://localhost:1337/crm-plugin/districts", requestOptions)
 ```json
 {
   "id": 3,
-  "name": "Karaikal",
+  "name": "Ahmedabad",
   "is_active": true,
-  "abbreviation": "KA",
-  "identifier": "KA",
+  "abbreviation": "AH",
+  "identifier": "AH",
   "state": {
     "id": 2,
-    "name": "Puducherry",
+    "name": "Gujarat",
     "is_active": true,
-    "abbreviation": "PY",
-    "identifier": "PY",
-    "country": 6,
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": 1,
     "created_at": "2020-06-08T17:00:27.897Z",
     "updated_at": "2020-06-08T17:00:27.897Z"
   },
@@ -339,7 +339,7 @@ This method creates a district with the attribute parameters passed to this meth
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"Karaikal --test\",\n    \"is_active\": \"true\"\n}"
+payload = "{\n\t\"name\": \"Ahmedabad --test\",\n    \"is_active\": \"true\"\n}"
 headers = {}
 conn.request("PUT", "/districts/3", payload, headers)
 res = conn.getresponse()
@@ -353,14 +353,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "Karaikal --test",
+	"name": "Ahmedabad --test",
   "is_active": "true"
 }' \
    'http://localhost:1337/crm-plugin/districts/3'
 ```
 
 ```javascript
-var raw = '{\n	"name": "Karaikal --test",\n    "is_active": "true"\n}';
+var raw = '{\n	"name": "Ahmedabad --test",\n    "is_active": "true"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -379,17 +379,17 @@ The above command returns JSON structured like this:
 ```json
 {
   "id": 3,
-  "name": "Karaikal --test",
+  "name": "Ahmedabad --test",
   "is_active": true,
-  "abbreviation": "KA",
-  "identifier": "KA",
+  "abbreviation": "AH",
+  "identifier": "AH",
   "state": {
     "id": 2,
-    "name": "Puducherry",
+    "name": "Gujarat",
     "is_active": true,
-    "abbreviation": "PY",
-    "identifier": "PY",
-    "country": 6,
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": 1,
     "created_at": "2020-06-08T17:00:27.897Z",
     "updated_at": "2020-06-08T17:00:27.897Z"
   },
@@ -479,7 +479,7 @@ fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
       "is_active": true,
       "abbreviation": "GA",
       "identifier": "GA",
-      "country": 6,
+      "country": 1,
       "created_at": "2020-06-08T17:00:27.897Z",
       "updated_at": "2020-06-08T17:00:27.897Z"
     },
@@ -489,17 +489,17 @@ fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
   },
   {
     "id": 3,
-    "name": "Karaikal --test",
+    "name": "Ahmedabad --test",
     "is_active": true,
-    "abbreviation": "KA",
-    "identifier": "KA",
+    "abbreviation": "AH",
+    "identifier": "AH",
     "state": {
       "id": 2,
-      "name": "Puducherry",
+      "name": "Gujarat",
       "is_active": true,
-      "abbreviation": "PY",
-      "identifier": "PY",
-      "country": 6,
+      "abbreviation": "GJ",
+      "identifier": "GJ",
+      "country": 1,
       "created_at": "2020-06-08T17:00:27.897Z",
       "updated_at": "2020-06-08T17:00:27.897Z"
     },

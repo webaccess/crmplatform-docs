@@ -45,7 +45,7 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
 [
   {
     "id": 1,
-    "name": "Test Tag 1",
+    "name": "Tag 1",
     "description": null,
     "is_active": true,
     "created_at": "2020-06-10T10:36:15.485Z",
@@ -54,7 +54,7 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
   },
   {
     "id": 2,
-    "name": "Test Tag 2",
+    "name": "Tag 2",
     "description": null,
     "is_active": true,
     "created_at": "2020-06-10T10:36:15.485Z",
@@ -125,7 +125,7 @@ fetch("http://localhost:1337/crm-plugin/tags/1", requestOptions)
 ```json
 {
   "id": 1,
-  "name": "Test Tag 1",
+  "name": "Tag 1",
   "description": null,
   "is_active": true,
   "created_at": "2020-06-10T10:36:15.485Z",
@@ -161,7 +161,7 @@ This method returns specific tag details by id
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\":\"Test Tag 4\"\n\t\n}"
+payload = "{\n\t\"name\":\"Tag 4\"\n\t\n}"
 conn.request("POST", "/tags", payload, headers)
 res = conn.getresponse()
 data = res.read()
@@ -174,7 +174,7 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name":"Test Tag 4"
+	"name":"Tag 4"
 
 }' \
    'http://localhost:1337/crm-plugin/tags'
@@ -182,7 +182,7 @@ wget --no-check-certificate --quiet \
 
 ```javascript
 var raw = "{
-\n	\"name\": \"Test Tag 4\"
+\n	\"name\": \"Tag 4\"
 \n}"
 
 var requestOptions = {
@@ -202,7 +202,7 @@ fetch("http://localhost:1337/crm-plugin/tags", requestOptions)
 ```json
 {
   "id": 4,
-  "name": "Test Tag 4",
+  "name": "Tag 4",
   "description": null,
   "is_active": true,
   "created_at": "2020-06-10T10:36:15.485Z",
@@ -283,7 +283,7 @@ fetch("http://localhost:1337/crm-plugin/tags/", requestOptions)
 ```json
 {
   "id": 4,
-  "name": "Test Tag 4",
+  "name": "Tag 4",
   "description": null,
   "is_active": false,
   "created_at": "2020-06-10T10:36:15.485Z",
@@ -410,7 +410,7 @@ fetch("http://localhost:1337/crm-plugin/tags/4", requestOptions)
 [
   {
     "id": 1,
-    "name": "Test Tag 1",
+    "name": "Tag 1",
     "description": null,
     "is_active": true,
     "created_at": "2020-06-10T10:36:15.485Z",
@@ -419,7 +419,7 @@ fetch("http://localhost:1337/crm-plugin/tags/4", requestOptions)
   },
   {
     "id": 2,
-    "name": "Test Tag 2",
+    "name": "Tag 2",
     "description": null,
     "is_active": true,
     "created_at": "2020-06-10T10:36:15.485Z",

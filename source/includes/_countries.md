@@ -41,7 +41,7 @@ fetch("http://localhost:1337/crm-plugin/countries", requestOptions)
 ```json
 [
   {
-    "id": 6,
+    "id": 1,
     "name": "India",
     "is_active": true,
     "abbreviation": "IN",
@@ -54,17 +54,17 @@ fetch("http://localhost:1337/crm-plugin/countries", requestOptions)
       "is_active": true,
       "abbreviation": "GA",
       "identifier": "GA",
-      "country": 6,
+      "country": 1,
       "created_at": "2020-06-08T17:00:27.897Z",
       "updated_at": "2020-06-08T17:00:27.897Z"
     },
     {
       "id": 2,
-      "name": "Puducherry",
+      "name": "Gujarat",
       "is_active": true,
-      "abbreviation": "PY",
-      "identifier": "PY",
-      "country": 6,
+      "abbreviation": "GJ",
+      "identifier": "GJ",
+      "country": 1,
       "created_at": "2020-06-09T14:31:52.037Z",
       "updated_at": "2020-06-09T14:31:52.037Z"
     },
@@ -103,7 +103,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("GET", "/countries/6", payload, headers)
+conn.request("GET", "/countries/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -114,7 +114,7 @@ wget --no-check-certificate --quiet \
   --method GET \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/countries/6'
+   'http://localhost:1337/crm-plugin/countries/1'
 ```
 
 ```javascript
@@ -123,7 +123,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/countries/6", requestOptions)
+fetch("http://localhost:1337/crm-plugin/countries/1", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -133,7 +133,7 @@ fetch("http://localhost:1337/crm-plugin/countries/6", requestOptions)
 
 ```json
 {
-  "id": 6,
+  "id": 1,
   "name": "India",
   "is_active": true,
   "abbreviation": "IN",
@@ -146,17 +146,17 @@ fetch("http://localhost:1337/crm-plugin/countries/6", requestOptions)
     "is_active": true,
     "abbreviation": "GA",
     "identifier": "GA",
-    "country": 6,
+    "country": 1,
     "created_at": "2020-06-08T17:00:27.897Z",
     "updated_at": "2020-06-08T17:00:27.897Z"
   },
   {
     "id": 2,
-    "name": "Puducherry",
+    "name": "Gujarat",
     "is_active": true,
-    "abbreviation": "PY",
-    "identifier": "PY",
-    "country": 6,
+    "abbreviation": "GJ",
+    "identifier": "GJ",
+    "country": 1,
     "created_at": "2020-06-09T14:31:52.037Z",
     "updated_at": "2020-06-09T14:31:52.037Z"
   },
@@ -251,7 +251,7 @@ import http.client
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t \"name\": \"Europe\",\n     \"is_active\": true,\n     \"abbreviation\": \"EU\"\n}"
+payload = "{\n\t \"name\": \"United States\",\n     \"is_active\": true,\n     \"abbreviation\": \"US\"\n}"
 headers = {}
 conn.request("POST", "/countries", payload, headers)
 res = conn.getresponse()
@@ -265,16 +265,16 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	  "name": "Europe",
+	  "name": "United States",
     "is_active": true,
-    "abbreviation": "EU"
+    "abbreviation": "US"
 }' \
    'http://localhost:1337/crm-plugin/countries'
 ```
 
 ```javascript
 var raw =
-  '{\n	 "name": "Europe",\n     "is_active": true,\n     "abbreviation": "EU"\n}';
+  '{\n	 "name": "United States",\n     "is_active": true,\n     "abbreviation": "US"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -292,11 +292,11 @@ fetch("http://localhost:1337/crm-plugin/countries", requestOptions)
 
 ```json
 {
-  "id": 7,
-  "name": "Europe",
+  "id": 2,
+  "name": "United States",
   "is_active": true,
-  "abbreviation": "EU",
-  "identifier": "EU",
+  "abbreviation": "US",
+  "identifier": "US",
   "created_at": "2020-06-08T15:34:11.390Z",
   "updated_at": "2020-06-08T15:34:11.390Z",
   "states": []
@@ -333,9 +333,9 @@ This method creates a country with the attribute parameters passed to this metho
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t \"name\": \"Europe --test\",\n     \"is_active\": true,\n     \"abbreviation\": \"EU\"\n}"
+payload = "{\n\t \"name\": \"United States --test\",\n     \"is_active\": true,\n     \"abbreviation\": \"US\"\n}"
 headers = {}
-conn.request("PUT", "/countries/7", payload, headers)
+conn.request("PUT", "/countries/2", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -347,16 +347,16 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	 "name": "Europe --test",
+	 "name": "United States --test",
      "is_active": true,
-     "abbreviation": "EU"
+     "abbreviation": "US"
 }' \
-   'http://localhost:1337/crm-plugin/countries/7'
+   'http://localhost:1337/crm-plugin/countries/2'
 ```
 
 ```javascript
 var raw =
-  '{\n	 "name": "Europe --test",\n     "is_active": true,\n     "abbreviation": "EU"\n}';
+  '{\n	 "name": "United States --test",\n     "is_active": true,\n     "abbreviation": "US"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -364,7 +364,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/countries/7", requestOptions)
+fetch("http://localhost:1337/crm-plugin/countries/2", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -374,11 +374,11 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 7,
-  "name": "Europe --test",
+  "id": 2,
+  "name": "United States --test",
   "is_active": true,
-  "abbreviation": "EU",
-  "identifier": "EU",
+  "abbreviation": "US",
+  "identifier": "US",
   "created_at": "2020-06-08T15:34:11.390Z",
   "updated_at": "2020-06-08T15:34:11.390Z",
   "states": []
@@ -420,7 +420,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/countries/7", payload, headers)
+conn.request("DELETE", "/countries/2", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -431,7 +431,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/countries/7'
+   'http://localhost:1337/crm-plugin/countries/2'
 ```
 
 ```javascript
@@ -443,7 +443,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/countries/7", requestOptions)
+fetch("http://localhost:1337/crm-plugin/countries/2", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -454,7 +454,7 @@ fetch("http://localhost:1337/crm-plugin/countries/7", requestOptions)
 ```json
 [
   {
-    "id": 6,
+    "id": 1,
     "name": "India",
     "is_active": true,
     "abbreviation": "IN",
@@ -467,17 +467,17 @@ fetch("http://localhost:1337/crm-plugin/countries/7", requestOptions)
       "is_active": true,
       "abbreviation": "GA",
       "identifier": "GA",
-      "country": 6,
+      "country": 1,
       "created_at": "2020-06-08T17:00:27.897Z",
       "updated_at": "2020-06-08T17:00:27.897Z"
     },
     {
       "id": 2,
-      "name": "Puducherry",
+      "name": "Gujarat",
       "is_active": true,
-      "abbreviation": "PY",
-      "identifier": "PY",
-      "country": 6,
+      "abbreviation": "GJ",
+      "identifier": "GJ",
+      "country": 1,
       "created_at": "2020-06-09T14:31:52.037Z",
       "updated_at": "2020-06-09T14:31:52.037Z"
     },

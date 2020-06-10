@@ -47,7 +47,7 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
     "abbreviation": "GA",
     "identifier": "GA",
     "country": {
-      "id": 6,
+      "id": 1,
       "name": "India",
       "is_active": true,
       "abbreviation": "IN",
@@ -80,12 +80,12 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
   },
   {
     "id": 2,
-    "name": "Puducherry",
+    "name": "Gujarat",
     "is_active": true,
-    "abbreviation": "PY",
-    "identifier": "PY",
+    "abbreviation": "GJ",
+    "identifier": "GJ",
     "country": {
-      "id": 6,
+      "id": 1,
       "name": "India",
       "is_active": true,
       "abbreviation": "IN",
@@ -98,20 +98,20 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
     "districts": [
       {
         "id": 3,
-        "name": "Karaikal",
+        "name": "Ahmedabad",
         "is_active": true,
-        "abbreviation": "KA",
-        "identifier": "KA",
+        "abbreviation": "AH",
+        "identifier": "AH",
         "state": 2,
         "created_at": "2020-06-09T14:31:52.718Z",
         "updated_at": "2020-06-09T14:31:52.718Z"
       },
       {
         "id": 4,
-        "name": "Pondicherry",
+        "name": "Bhavnagar",
         "is_active": true,
-        "abbreviation": "PO",
-        "identifier": "PO",
+        "abbreviation": "BV",
+        "identifier": "BV",
         "state": 2,
         "created_at": "2020-06-09T14:31:52.721Z",
         "updated_at": "2020-06-09T14:31:52.721Z"
@@ -189,7 +189,7 @@ fetch("http://localhost:1337/crm-plugin/states/1", requestOptions)
   "abbreviation": "GA",
   "identifier": "GA",
   "country": {
-    "id": 6,
+    "id": 1,
     "name": "India",
     "is_active": true,
     "abbreviation": "IN",
@@ -361,7 +361,7 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
 	"abbreviation": "MH",
 	"identifier": "MH",
 	"country": {
-		"id": 6,
+		"id": 1,
 		"name": "India",
 		"is_active": true,
 		"abbreviation": "IN",
@@ -472,7 +472,7 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
 	"abbreviation": "MH",
 	"identifier": "MH",
 	"country": {
-		"id": 6,
+		"id": 1,
 		"name": "India",
 		"is_active": true,
 		"abbreviation": "IN",
@@ -581,7 +581,7 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
     "abbreviation": "GA",
     "identifier": "GA",
     "country": {
-      "id": 6,
+      "id": 1,
       "name": "India",
       "is_active": true,
       "abbreviation": "IN",
@@ -614,12 +614,12 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
   },
   {
     "id": 2,
-    "name": "Puducherry",
+    "name": "Gujarat",
     "is_active": true,
-    "abbreviation": "PY",
-    "identifier": "PY",
+    "abbreviation": "GJ",
+    "identifier": "GJ",
     "country": {
-      "id": 6,
+      "id": 1,
       "name": "India",
       "is_active": true,
       "abbreviation": "IN",
@@ -632,20 +632,20 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
     "districts": [
       {
         "id": 3,
-        "name": "Karaikal",
+        "name": "Ahmedabad",
         "is_active": true,
-        "abbreviation": "KA",
-        "identifier": "KA",
+        "abbreviation": "AH",
+        "identifier": "AH",
         "state": 2,
         "created_at": "2020-06-09T14:31:52.718Z",
         "updated_at": "2020-06-09T14:31:52.718Z"
       },
       {
         "id": 4,
-        "name": "Pondicherry",
+        "name": "Bhavnagar",
         "is_active": true,
-        "abbreviation": "PO",
-        "identifier": "PO",
+        "abbreviation": "BV",
+        "identifier": "BV",
         "state": 2,
         "created_at": "2020-06-09T14:31:52.721Z",
         "updated_at": "2020-06-09T14:31:52.721Z"
