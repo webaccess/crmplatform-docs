@@ -47,7 +47,16 @@ fetch("http://localhost:1337/crm-plugin/activitytypes", requestOptions)
     "created_at": "2020-05-15T17:57:09.304Z",
     "updated_at": "2020-05-15T17:57:09.304Z",
     "activities": []
-  }
+  },
+  {
+    "id": 2,
+    "name": "Agriculture",
+    "is_active": true,
+    "created_at": "2020-05-15T18:00:09.304Z",
+    "updated_at": "2020-05-15T18:00:09.304Z",
+    "activities": []
+  },
+  {...}
 ]
 ```
 
@@ -146,7 +155,7 @@ This method returns specific activitytype details by id.
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"piggery\",\n    \"is_active\": \"true\"\n}"
+payload = "{\n\t\"name\": \"Piggery\",\n    \"is_active\": \"true\"\n}"
 headers = {}
 conn.request("POST", "/activitytypes", payload, headers)
 res = conn.getresponse()
@@ -160,14 +169,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "piggery",
+	"name": "Piggery",
     "is_active": "true"
 }' \
    'http://localhost:1337/crm-plugin/activitytypes'
 ```
 
 ```javascript
-var raw = '{\n	"name": "piggery",\n    "is_active": "true"\n}';
+var raw = '{\n	"name": "Piggery",\n    "is_active": "true"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -185,8 +194,8 @@ fetch("http://localhost:1337/crm-plugin/activitytypes", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "piggery",
+  "id": 3,
+  "name": "Piggery",
   "is_active": true,
   "created_at": "2020-06-04T13:06:29.683Z",
   "updated_at": "2020-06-04T13:06:29.683Z",
@@ -223,9 +232,9 @@ This method creates an activitytype with the attribute parameters passed to this
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"name\": \"fishery -- test\",\n    \"is_active\": \"true\"\n}"
+payload = "{\n\t\"name\": \"Fishery -- test\",\n    \"is_active\": \"true\"\n}"
 headers = {}
-conn.request("PUT", "/activitytypes/2", payload, headers)
+conn.request("PUT", "/activitytypes/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -237,14 +246,14 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"name": "fishery -- test",
+	"name": "Fishery -- test",
     "is_active": "true"
 }' \
-   'http://localhost:1337/crm-plugin/activitytypes/2'
+   'http://localhost:1337/crm-plugin/activitytypes/3'
 ```
 
 ```javascript
-var raw = '{\n	"name": "fishery -- test",\n    "is_active": "true"\n}';
+var raw = '{\n	"name": "Fishery -- test",\n    "is_active": "true"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -252,7 +261,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activitytypes/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/activitytypes/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -262,8 +271,8 @@ fetch("http://localhost:1337/crm-plugin/activitytypes/2", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "name": "fishery -- test",
+  "id": 3,
+  "name": "Fishery -- test",
   "is_active": true,
   "created_at": "2020-06-04T13:06:29.683Z",
   "updated_at": "2020-06-04T13:06:29.683Z",

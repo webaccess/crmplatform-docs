@@ -1,6 +1,6 @@
 # Activities
 
-Activity stores details about what the activity is and also tracks when the activity took place as well as information about that activity
+Activity stores the details about the activity such as title, date and time and description.
 
 ## Get All Activities
 
@@ -42,7 +42,7 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
 [
   {
     "id": 1,
-    "title": "fishery",
+    "title": "Fishery",
     "start_datetime": null,
     "end_datetime": null,
     "description": null,
@@ -50,7 +50,19 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
     "created_at": "2020-05-28T23:52:16.303Z",
     "updated_at": "2020-05-28T23:52:43.459Z",
     "activityassignees": []
-  }
+  },
+    {
+    "id": 2,
+    "title": "Farming",
+    "start_datetime": null,
+    "end_datetime": null,
+    "description": null,
+    "activitytype": null,
+    "created_at": "2020-05-28T22:08:20.303Z",
+    "updated_at": "2020-05-28T22:08:20.459Z",
+    "activityassignees": []
+  },
+  {...}
 ]
 ```
 
@@ -114,7 +126,7 @@ fetch("http://localhost:1337/crm-plugin/activities/1", requestOptions)
 ```json
 {
   "id": 1,
-  "title": "fishery",
+  "title": "Fishery",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,
@@ -152,7 +164,7 @@ This method returns specific activity details by id.
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"title\":\"ponding\"\n}"
+payload = "{\n\t\"title\":\"Ponding\"\n}"
 headers = {}
 conn.request("POST", "/activities", payload, headers)
 res = conn.getresponse()
@@ -166,13 +178,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"title":"ponding"
+	"title":"Ponding"
 }' \
    'http://localhost:1337/crm-plugin/activities'
 ```
 
 ```javascript
-var raw = '{\n	"title":"ponding"\n}';
+var raw = '{\n	"title":"Ponding"\n}';
 
 var requestOptions = {
   method: "POST",
@@ -190,8 +202,8 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "title": "ponding",
+  "id": 3,
+  "title": "Ponding",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,
@@ -231,9 +243,9 @@ This method creates an activity with the attribute parameters passed to this met
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
-payload = "{\n\t\"title\":\"piggery --test\"\n}"
+payload = "{\n\t\"title\":\"Piggery --test\"\n}"
 headers = {}
-conn.request("PUT", "/activities/2", payload, headers)
+conn.request("PUT", "/activities/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -245,13 +257,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"title":"piggery --test"
+	"title":"Piggery --test"
 }' \
-   'http://localhost:1337/crm-plugin/activities/2'
+   'http://localhost:1337/crm-plugin/activities/3'
 ```
 
 ```javascript
-var raw = '{\n	"title":"piggery --test"\n}';
+var raw = '{\n	"title":"Piggery --test"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -259,7 +271,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activities/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/activities/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -269,8 +281,8 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "title": "piggery --test",
+  "id": 3,
+  "title": "Piggery --test",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,
@@ -350,7 +362,7 @@ fetch("http://localhost:1337/crm-plugin/activities/1", requestOptions)
 ```json
 {
   "id": 1,
-  "title": "fishery",
+  "title": "Fishery",
   "start_datetime": null,
   "end_datetime": null,
   "description": null,

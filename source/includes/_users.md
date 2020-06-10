@@ -42,8 +42,8 @@ fetch("http://localhost:1337/users", requestOptions)
 [
   {
     "id": 1,
-    "username": "ankita.shinde",
-    "email": "demo@gmail.com",
+    "username": "demoUser",
+    "email": "demouser@example.com",
     "provider": "local",
     "confirmed": true,
     "blocked": false,
@@ -55,7 +55,26 @@ fetch("http://localhost:1337/users", requestOptions)
     },
     "created_at": "2020-05-18T06:25:24.731Z",
     "updated_at": "2020-05-28T12:43:51.512Z"
-  }
+  },
+  [
+    {
+      "id": 2,
+      "username": "demoUser2",
+      "email": "demo@example.com",
+      "provider": "local",
+      "confirmed": true,
+      "blocked": false,
+      "role": {
+        "id": 1,
+        "name": "Authenticated",
+        "description": "Default role given to authenticated user.",
+        "type": "authenticated"
+      },
+      "created_at": "2020-05-18T06:25:24.731Z",
+      "updated_at": "2020-06-09T05:35:32.118Z"
+    },
+    {...}
+  ]
 ]
 ```
 
@@ -119,8 +138,8 @@ fetch("http://localhost:1337/users/1", requestOptions)
 ```json
 {
   "id": 1,
-  "username": "ankita.shinde",
-  "email": "demo@gmail.com",
+  "username": "demoUser",
+  "email": "demouser@example.com",
   "provider": "local",
   "confirmed": true,
   "blocked": false,
@@ -162,7 +181,7 @@ This method returns specific user details by id.
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/users")
-payload = "{\n\t \"username\": \"suyesh.tiwari\",\n        \"email\": \"suyesh.tiwari@webaccessglobal.com\",\n        \"provider\": \"local\",\n        \"confirmed\": true,\n        \"password\":\"suyesh@123\",\n        \"blocked\": false\n}"
+payload = "{\n\t \"username\": \"testuser\",\n        \"email\": \"testUser@example.com\",\n        \"provider\": \"local\",\n        \"confirmed\": true,\n        \"password\":\"password\",\n        \"blocked\": false\n}"
 headers = {}
 conn.request("POST", "", payload, headers)
 res = conn.getresponse()
@@ -176,11 +195,11 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	 "username": "suyesh.tiwari",
-        "email": "suyesh.tiwari@webaccessglobal.com",
+	 "username": "testUser",
+        "email": "testuser@example.com",
         "provider": "local",
         "confirmed": true,
-        "password":"suyesh@123",
+        "password":"password",
         "blocked": false
 }' \
    'http://localhost:1337/users'
@@ -188,7 +207,7 @@ wget --no-check-certificate --quiet \
 
 ```javascript
 var raw =
-  '{\n	 "username": "suyesh.tiwari",\n        "email": "suyesh.tiwari@webaccessglobal.com",\n        "provider": "local",\n        "confirmed": true,\n        "password":"suyesh@123",\n        "blocked": false\n}';
+  '{\n	 "username": "testUser",\n        "email": "testuser@example.com",\n        "provider": "local",\n        "confirmed": true,\n        "password":"password",\n        "blocked": false\n}';
 
 var requestOptions = {
   method: "POST",
@@ -207,10 +226,10 @@ fetch("http://localhost:1337/users", requestOptions)
 ```json
 {
   "id": 3,
-  "username": "suyesh.tiwari",
-  "email": "suyesh@webaccessglobal.com",
+  "username": "testUser",
+  "email": "testuser@example.com",
   "provider": "local",
-  "password": "$2a$10$sqxFALfAsf47D9i2uDIxHe3sGLDUe3egkhvLtBLstypPCkQKXR49a",
+  "password": "$2a$10$kkQwn0/fI0VOK3iYRkIo.eSYuOJuqGgL0TZFwOABOOZ5yKNLqwwnq",
   "resetPasswordToken": null,
   "confirmed": true,
   "blocked": false,
@@ -255,9 +274,9 @@ This method creates an user with the attribute parameters passed to this method 
 import http.client
 import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/users")
-payload = "{\n\t\"username\": \"suyesh.tiwaries\"\n}"
+payload = "{\n\t\"username\": \"testuser2\"\n}"
 headers = {}
-conn.request("PUT", "/2", payload, headers)
+conn.request("PUT", "/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -269,13 +288,13 @@ wget --no-check-certificate --quiet \
   --timeout=0 \
   --header '' \
   --body-data '{
-	"username": "suyesh.tiwaries"
+	"username": "testuser2"
 }' \
-   'http://localhost:1337/users/2'
+   'http://localhost:1337/users/3'
 ```
 
 ```javascript
-var raw = '{\n	"username": "suyesh.tiwaries"\n}';
+var raw = '{\n	"username": "testuser2"\n}';
 
 var requestOptions = {
   method: "PUT",
@@ -283,7 +302,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/users/2", requestOptions)
+fetch("http://localhost:1337/users/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -293,11 +312,11 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "username": "suyesh.tiwaries",
-  "email": "suyesh@webaccessglobal.com",
+  "id": 3,
+  "username": "testuser2",
+  "email": "testuser@example.com",
   "provider": "local",
-  "password": "$2a$10$sqxFALfAsf47D9i2uDIxHe3sGLDUe3egkhvLtBLstypPCkQKXR49a",
+  "password": "$2a$10$kkQwn0/fI0VOK3iYRkIo.eSYuOJuqGgL0TZFwOABOOZ5yKNLqwwnq",
   "resetPasswordToken": null,
   "confirmed": true,
   "blocked": false,
@@ -347,7 +366,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/users")
 payload = ''
 headers = {}
-conn.request("DELETE", "/2", payload, headers)
+conn.request("DELETE", "/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -358,7 +377,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/users/2'
+   'http://localhost:1337/users/3'
 ```
 
 ```javascript
@@ -370,7 +389,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/users/2", requestOptions)
+fetch("http://localhost:1337/users/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -380,11 +399,11 @@ fetch("http://localhost:1337/users/2", requestOptions)
 
 ```json
 {
-  "id": 2,
-  "username": "suyesh.tiwaries",
-  "email": "suyesh@webaccessglobal.com",
+  "id": 3,
+  "username": "testuser2",
+  "email": "testuser@example.com",
   "provider": "local",
-  "password": "$2a$10$sqxFALfAsf47D9i2uDIxHe3sGLDUe3egkhvLtBLstypPCkQKXR49a",
+  "password": "$2a$10$kkQwn0/fI0VOK3iYRkIo.eSYuOJuqGgL0TZFwOABOOZ5yKNLqwwnq",
   "resetPasswordToken": null,
   "confirmed": true,
   "blocked": false,
