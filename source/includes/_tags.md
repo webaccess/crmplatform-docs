@@ -218,12 +218,12 @@ This method creates a tag with the attribute parameters passed to this method by
 
 ### Request Parameters
 
-| Parameter         | Description                                                                   |
-| ----------------- | ----------------------------------------------------------------------------- |
-| name              | The name of the tag                                                           |
-| is_active         | Active status of tag (Boolean value : true or false)                          |
-| contact           | Specifies contact tag which could be an organization or individual (Optional) |
-| Column attributes | Column attributes in the table (Optional)                                     |
+| Parameter         | Description                                                         |
+| ----------------- | ------------------------------------------------------------------- |
+| name              | The name of the tag                                                 |
+| is_active         | Active status of tag (Boolean value : true or false)                |
+| contact           | Array of contact tag (an organization or individual) ids (Optional) |
+| Column attributes | Column attributes in the table (Optional)                           |
 
 ## Update a Specific Tag
 
