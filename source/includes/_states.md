@@ -377,7 +377,7 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
 		"is_active": true,
 		"abbreviation": "SO",
 		"identifier": "SO",
-		"state": 38,
+		"state": 3,
 		"created_at": "2020-06-09T14:29:23.112Z",
 		"updated_at": "2020-06-09T14:29:23.112Z"
 	}, {
@@ -386,7 +386,7 @@ fetch("http://localhost:1337/crm-plugin/states", requestOptions)
 		"is_active": true,
 		"abbreviation": "AM",
 		"identifier": "AM",
-		"state": 38,
+		"state": 3,
 		"created_at": "2020-06-09T14:29:23.060Z",
 		"updated_at": "2020-06-09T14:29:23.060Z"
 	},
@@ -488,7 +488,7 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
 		"is_active": true,
 		"abbreviation": "SO",
 		"identifier": "SO",
-		"state": 38,
+		"state": 3,
 		"created_at": "2020-06-09T14:29:23.112Z",
 		"updated_at": "2020-06-09T14:29:23.112Z"
 	}, {
@@ -497,7 +497,7 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
 		"is_active": true,
 		"abbreviation": "AM",
 		"identifier": "AM",
-		"state": 38,
+		"state": 3,
 		"created_at": "2020-06-09T14:29:23.060Z",
 		"updated_at": "2020-06-09T14:29:23.060Z"
 	},
