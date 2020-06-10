@@ -47,7 +47,16 @@ fetch("http://localhost:1337/crm-plugin/activitytypes", requestOptions)
     "created_at": "2020-05-15T17:57:09.304Z",
     "updated_at": "2020-05-15T17:57:09.304Z",
     "activities": []
-  }
+  },
+  {
+    "id": 2,
+    "name": "Agiculture",
+    "is_active": true,
+    "created_at": "2020-05-15T18:00:09.304Z",
+    "updated_at": "2020-05-15T18:00:09.304Z",
+    "activities": []
+  },
+  {...}
 ]
 ```
 
@@ -185,7 +194,7 @@ fetch("http://localhost:1337/crm-plugin/activitytypes", requestOptions)
 
 ```json
 {
-  "id": 2,
+  "id": 3,
   "name": "piggery",
   "is_active": true,
   "created_at": "2020-06-04T13:06:29.683Z",
@@ -225,7 +234,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = "{\n\t\"name\": \"fishery -- test\",\n    \"is_active\": \"true\"\n}"
 headers = {}
-conn.request("PUT", "/activitytypes/2", payload, headers)
+conn.request("PUT", "/activitytypes/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -240,7 +249,7 @@ wget --no-check-certificate --quiet \
 	"name": "fishery -- test",
     "is_active": "true"
 }' \
-   'http://localhost:1337/crm-plugin/activitytypes/2'
+   'http://localhost:1337/crm-plugin/activitytypes/3'
 ```
 
 ```javascript
@@ -252,7 +261,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activitytypes/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/activitytypes/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -262,7 +271,7 @@ fetch("http://localhost:1337/crm-plugin/activitytypes/2", requestOptions)
 
 ```json
 {
-  "id": 2,
+  "id": 3,
   "name": "fishery -- test",
   "is_active": true,
   "created_at": "2020-06-04T13:06:29.683Z",

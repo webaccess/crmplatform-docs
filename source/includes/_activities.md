@@ -1,6 +1,6 @@
 # Activities
 
-Activity stores details about what the activity is and also tracks when the activity took place as well as information about that activity
+Activity stores the details about the activity such as title, date and time and description.
 
 ## Get All Activities
 
@@ -50,7 +50,19 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
     "created_at": "2020-05-28T23:52:16.303Z",
     "updated_at": "2020-05-28T23:52:43.459Z",
     "activityassignees": []
-  }
+  },
+    {
+    "id": 2,
+    "title": "farming",
+    "start_datetime": null,
+    "end_datetime": null,
+    "description": null,
+    "activitytype": null,
+    "created_at": "2020-05-28T22:08:20.303Z",
+    "updated_at": "2020-05-28T22:08:20.459Z",
+    "activityassignees": []
+  },
+  {...}
 ]
 ```
 
@@ -190,7 +202,7 @@ fetch("http://localhost:1337/crm-plugin/activities", requestOptions)
 
 ```json
 {
-  "id": 2,
+  "id": 3,
   "title": "ponding",
   "start_datetime": null,
   "end_datetime": null,
@@ -233,7 +245,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = "{\n\t\"title\":\"piggery --test\"\n}"
 headers = {}
-conn.request("PUT", "/activities/2", payload, headers)
+conn.request("PUT", "/activities/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -247,7 +259,7 @@ wget --no-check-certificate --quiet \
   --body-data '{
 	"title":"piggery --test"
 }' \
-   'http://localhost:1337/crm-plugin/activities/2'
+   'http://localhost:1337/crm-plugin/activities/3'
 ```
 
 ```javascript
@@ -259,7 +271,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/activities/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/activities/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -269,7 +281,7 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
+  "id": 3,
   "title": "piggery --test",
   "start_datetime": null,
   "end_datetime": null,

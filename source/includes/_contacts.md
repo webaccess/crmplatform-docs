@@ -69,7 +69,32 @@ fetch("http://localhost:1337/crm-plugin/contact", requestOptions)
     "villages": [],
     "activityassignees": [],
     "contacttags": []
-  }
+  },
+  {
+    "id": 2,
+    "name": "National Horticultural Society",
+    "phone": null,
+    "phone_other": null,
+    "email": null,
+    "email_other": null,
+    "address_1": null,
+    "address_2": null,
+    "city": null,
+    "pincode": null,
+    "contact_type": "organization",
+    "organization": null,
+    "country": null,
+    "state": null,
+    "district": null,
+    "individual": null,
+    "user": null,
+    "created_at": "2020-05-15T18:05:11.520Z",
+    "updated_at": "2020-05-15T18:05:11.520Z",
+    "villages": [],
+    "activityassignees": [],
+    "contacttags": []
+  },
+  {...}
 ]
 ```
 
@@ -232,7 +257,7 @@ fetch("http://localhost:1337/crm-plugin/contact/", requestOptions)
 
 ```json
 {
-  "id": 2,
+  "id": 3,
   "name": "Tech Providers",
   "phone": null,
   "phone_other": null,
@@ -244,7 +269,7 @@ fetch("http://localhost:1337/crm-plugin/contact/", requestOptions)
   "pincode": null,
   "contact_type": "organization",
   "organization": {
-    "id": 2,
+    "id": 3,
     "name": "Tech Providers",
     "contact": 2,
     "created_at": "2020-06-04T11:21:35.951Z",
@@ -294,7 +319,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = " { \r\n\t\"name\": \"Tech Providers --test\",\r\n\t\"contact_type\": \"organization\"\r\n }"
 headers = {}
-conn.request("PUT", "/contact/2", payload, headers)
+conn.request("PUT", "/contact/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -309,7 +334,7 @@ wget --no-check-certificate --quiet \
 	"name": "Tech Providers --test",
 	"contact_type": "organization"
  }' \
-   'http://localhost:1337/crm-plugin/contact/2'
+   'http://localhost:1337/crm-plugin/contact/3'
 ```
 
 ```javascript
@@ -324,7 +349,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost:1337/crm-plugin/contact/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/contact/3", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
@@ -334,7 +359,7 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
+  "id": 3,
   "name": "Tech Providers --test",
   "phone": null,
   "phone_other": null,
@@ -346,7 +371,7 @@ The above command returns JSON structured like this:
   "pincode": null,
   "contact_type": "organization",
   "organization": {
-    "id": 2,
+    "id": 3,
     "name": "Tech Providers --test",
     "contact": 2,
     "created_at": "2020-06-04T11:21:35.951Z",

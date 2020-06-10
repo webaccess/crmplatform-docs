@@ -54,7 +54,20 @@ fetch("http://localhost:1337/crm-plugin/villages", requestOptions)
     "created_at": "2020-05-22T06:25:50.650Z",
     "updated_at": "2020-05-22T06:25:50.650Z",
     "contacts": []
-  }
+  },
+    {
+    "id": 2,
+    "name": "Junnar",
+    "abbreviation": null,
+    "identifier": null,
+    "is_active": true,
+    "state": null,
+    "district": null,
+    "created_at": "2020-05-22T07:30:20.650Z",
+    "updated_at": "2020-05-22T07:30:20.650Z",
+    "contacts": []
+  },
+  {...}
 ]
 ```
 
@@ -188,7 +201,7 @@ fetch("http://localhost:1337/crm-plugin/villages/count", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-1
+2
 ```
 
 ### Description
@@ -255,7 +268,7 @@ fetch("http://localhost:1337/crm-plugin/villages", requestOptions)
 ```json
 {
   "id": 2,
-  "name": "thane",
+  "name": "Thane",
   "abbreviation": null,
   "identifier": null,
   "is_active": true,
@@ -297,7 +310,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = "{\n\t\"name\": \"thane --test\"\n}"
 headers = {}
-conn.request("PUT", "/villages/2", payload, headers)
+conn.request("PUT", "/villages/3", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -311,7 +324,7 @@ wget --no-check-certificate --quiet \
   --body-data '{
 	"name": "thane --test"
 }' \
-   'http://localhost:1337/crm-plugin/villages/2'
+   'http://localhost:1337/crm-plugin/villages/3'
 ```
 
 ```javascript
@@ -323,7 +336,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/villages/2", requestOptions)
+fetch("http://localhost:1337/crm-plugin/villages/3", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
@@ -333,8 +346,8 @@ The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "thane --test",
+  "id": 3,
+  "name": "Thane --test",
   "abbreviation": null,
   "identifier": null,
   "is_active": true,
