@@ -573,89 +573,45 @@ fetch("http://localhost:1337/crm-plugin/states/3", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Goa",
-    "is_active": true,
-    "abbreviation": "GA",
-    "identifier": "GA",
-    "country": {
-      "id": 1,
-      "name": "India",
-      "is_active": true,
-      "abbreviation": "IN",
-      "identifier": "IN",
-      "created_at": "2020-06-08T15:34:11.390Z",
-      "updated_at": "2020-06-08T15:34:11.390Z"
-    },
-    "created_at": "2020-06-08T17:00:27.897Z",
-    "updated_at": "2020-06-08T17:00:27.897Z",
-    "districts": [{
-      "id": 1,
-      "name": "North Goa",
-      "is_active": true,
-      "abbreviation": "NG",
-      "identifier": "NG",
-      "state": 1,
-      "created_at": "2020-06-08T17:38:17.853Z",
-      "updated_at": "2020-06-08T17:38:17.853Z"
-    }, {
-      "id": 2,
-      "name": "South Goa",
-      "is_active": true,
-      "abbreviation": "SG",
-      "identifier": "SG",
-      "state": 1,
-      "created_at": "2020-06-08T17:38:17.860Z",
-      "updated_at": "2020-06-08T17:38:17.860Z"
-    }],
-    "villages": []
-  },
-  {
-    "id": 2,
-    "name": "Gujarat",
-    "is_active": true,
-    "abbreviation": "GJ",
-    "identifier": "GJ",
-    "country": {
-      "id": 1,
-      "name": "India",
-      "is_active": true,
-      "abbreviation": "IN",
-      "identifier": "IN",
-      "created_at": "2020-06-08T15:34:11.390Z",
-      "updated_at": "2020-06-08T15:34:11.390Z"
-    },
-    "created_at": "2020-06-09T14:31:52.037Z",
-    "updated_at": "2020-06-09T14:31:52.037Z",
-    "districts": [
-      {
-        "id": 3,
-        "name": "Ahmedabad",
-        "is_active": true,
-        "abbreviation": "AH",
-        "identifier": "AH",
-        "state": 2,
-        "created_at": "2020-06-09T14:31:52.718Z",
-        "updated_at": "2020-06-09T14:31:52.718Z"
-      },
-      {
-        "id": 4,
-        "name": "Bhavnagar",
-        "is_active": true,
-        "abbreviation": "BV",
-        "identifier": "BV",
-        "state": 2,
-        "created_at": "2020-06-09T14:31:52.721Z",
-        "updated_at": "2020-06-09T14:31:52.721Z"
-      },
-      {...}
-    ],
-    "villages": []
-  },
-  {...}
-]
+{
+	"id": 3,
+	"name": "Maharashtra --test",
+	"is_active": true,
+	"abbreviation": "MH",
+	"identifier": "MH",
+	"country": {
+		"id": 1,
+		"name": "India",
+		"is_active": true,
+		"abbreviation": "IN",
+		"identifier": "IN",
+		"created_at": "2020-06-08T15:34:11.390Z",
+		"updated_at": "2020-06-08T15:34:11.390Z"
+	},
+	"created_at": "2020-06-08T17:00:27.916Z",
+	"updated_at": "2020-06-08T17:00:27.916Z",
+	"districts": [{
+		"id": 10,
+		"name": "Solapur",
+		"is_active": true,
+		"abbreviation": "SO",
+		"identifier": "SO",
+		"state": 3,
+		"created_at": "2020-06-09T14:29:23.112Z",
+		"updated_at": "2020-06-09T14:29:23.112Z"
+	}, {
+		"id": 11,
+		"name": "Amravati",
+		"is_active": true,
+		"abbreviation": "AM",
+		"identifier": "AM",
+		"state": 3,
+		"created_at": "2020-06-09T14:29:23.060Z",
+		"updated_at": "2020-06-09T14:29:23.060Z"
+	},
+  {...}],
+	"villages": []
+}
 ```
 
 ### Description
