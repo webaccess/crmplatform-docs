@@ -434,7 +434,7 @@ import mimetypes
 conn = http.client.HTTPSConnection("http://localhost:1337/crm-plugin")
 payload = ''
 headers = {}
-conn.request("DELETE", "/districts/1", payload, headers)
+conn.request("DELETE", "/districts/2", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
@@ -445,7 +445,7 @@ wget --no-check-certificate --quiet \
   --method DELETE \
   --timeout=0 \
   --header '' \
-   'http://localhost:1337/crm-plugin/districts/1'
+   'http://localhost:1337/crm-plugin/districts/2'
 ```
 
 ```javascript
@@ -457,7 +457,7 @@ var requestOptions = {
   redirect: "follow",
 };
 
-fetch("http://localhost:1337/crm-plugin/districts/1", requestOptions)
+fetch("http://localhost:1337/crm-plugin/districts/2", requestOptions)
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));

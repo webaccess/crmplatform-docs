@@ -452,39 +452,16 @@ fetch("http://localhost:1337/crm-plugin/countries/2", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "India",
-    "is_active": true,
-    "abbreviation": "IN",
-    "identifier": "IN",
-    "created_at": "2020-06-08T15:34:11.390Z",
-    "updated_at": "2020-06-08T15:34:11.390Z",
-    "states": [{
-      "id": 1,
-      "name": "Goa",
-      "is_active": true,
-      "abbreviation": "GA",
-      "identifier": "GA",
-      "country": 1,
-      "created_at": "2020-06-08T17:00:27.897Z",
-      "updated_at": "2020-06-08T17:00:27.897Z"
-    },
-    {
-      "id": 2,
-      "name": "Gujarat",
-      "is_active": true,
-      "abbreviation": "GJ",
-      "identifier": "GJ",
-      "country": 1,
-      "created_at": "2020-06-09T14:31:52.037Z",
-      "updated_at": "2020-06-09T14:31:52.037Z"
-    },
-    {...}]
-  },
-  {...}
-]
+{
+  "id": 2,
+  "name": "United States --test",
+  "is_active": true,
+  "abbreviation": "US",
+  "identifier": "US",
+  "created_at": "2020-06-08T15:34:11.390Z",
+  "updated_at": "2020-06-08T15:34:11.390Z",
+  "states": []
+}
 ```
 
 ### Description

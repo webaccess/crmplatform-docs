@@ -407,27 +407,63 @@ fetch("http://localhost:1337/crm-plugin/tags/4", requestOptions)
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Tag 1",
-    "description": null,
-    "is_active": true,
-    "created_at": "2020-06-10T10:36:15.485Z",
-    "updated_at": "2020-06-10T10:36:15.485Z",
-    "contacttags": []
-  },
-  {
-    "id": 2,
-    "name": "Tag 2",
-    "description": null,
-    "is_active": true,
-    "created_at": "2020-06-10T10:36:15.485Z",
-    "updated_at": "2020-06-10T10:36:15.485Z",
-    "contacttags": []
-  },
-  {...}
-]
+{
+  "id": 4,
+  "name": "Tag 4",
+  "description": null,
+  "is_active": false,
+  "created_at": "2020-06-10T10:36:15.485Z",
+  "updated_at": "2020-06-10T10:36:15.485Z",
+  "contacttags": [
+    {
+      "id": 1,
+      "contact": 1,
+      "tag": 4,
+      "created_at": "2020-06-04T13:26:17.453Z",
+      "updated_at": "2020-06-04T13:26:17.477Z"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "NewTech",
+      "phone": null,
+      "phone_other": null,
+      "email": null,
+      "email_other": null,
+      "address_1": null,
+      "address_2": null,
+      "city": null,
+      "pincode": null,
+      "contact_type": "organization",
+      "organization": {
+        "id": 155,
+        "name": "NewTech",
+        "contact": 158,
+        "created_at": "2020-06-04T13:25:03.188Z",
+        "updated_at": "2020-06-04T13:25:03.354Z"
+      },
+      "country": null,
+      "state": null,
+      "district": null,
+      "individual": null,
+      "user": null,
+      "created_at": "2020-06-04T13:25:03.298Z",
+      "updated_at": "2020-06-04T13:25:03.375Z",
+      "villages": [],
+      "activityassignees": [],
+      "contacttags": [
+        {
+          "id": 1,
+          "contact": 1,
+          "tag": 4,
+          "created_at": "2020-06-04T13:26:17.453Z",
+          "updated_at": "2020-06-04T13:26:17.477Z"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ### Description
